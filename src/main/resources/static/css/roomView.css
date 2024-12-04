@@ -1,0 +1,94 @@
+
+
+*{
+    padding: 10px;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: Poppins;
+}
+
+.sidebar {
+    position: fixed;
+    background: rgba(217, 217, 217, 0.3);
+    width: 275px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.sidebar ul {
+    margin-left: 15px;
+}
+
+.main {
+    margin-top: 45px;
+    padding: 5px;
+}
+
+
+.desc_kost button{
+    width: 214px;
+    height: 46px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.addkos button{
+    width: 400px;
+    height: 615px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.desc_kost p{
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.text h1{
+    margin-left: 150px;
+    margin-top: 50px;
+    color: #000000;
+    font-family: Poppins;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: bolder;
+    line-height: normal;
+}
+
+.text2 h2{
+    margin-left: 150px;
+    margin-top: 30px;
+    color: #000000;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    line-height: normal;
+}
+
+

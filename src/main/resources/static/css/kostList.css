@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding:0;
+    font-family: 'Poppins';
+}
+
+.cont_nav{
+    top: 0; 
+    width: 100%; 
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.content_nav button{
+    border-radius: 8px;
+    background: #00BBB4;
+    display: flex;
+    width: 182.237px;
+    height: 48px;
+    padding: 8px 16.237px 10px 16px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    text-align: center;
+    color: white;
+    border: none;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.33px;
+}
+
+.content_nav a{
+    flex-shrink: 0;
+    color: #9D9D9D;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.logo{
+    margin-right: 1423px;
+    width: 178px;
+    height: 54px;
+}
+
+.search-bar {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    width: 100%;
+}
+
+.search-input-container {
+    display: flex;
+    width: 200%;
+    max-width: 600px; /* Optional: Set a max-width for the search bar */
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 15px;
+    border: 1px solid #ced4da; /* Optional: Add a border for styling */
+    border-radius: 8px; /* Optional: Add border-radius for rounded corners */
+}
+
+.search-button {
+    margin-left: 10px;
+    padding: 15px;
+    border: none;
+    background: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.kost-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    width: 40%;
+}
+
+.kost-link {
+    /* text-decoration: none; */
+    font-weight: bold;
+    color: #333;
+}
+
+
+.filter-options {
+    margin-left: 700px; /* adjust as needed */
+}
+
+.filter-label {
+    margin-right: 10px; /* space between checkboxes and labels */
+    font-size: 16px; /* adjust font size as needed */
+}
+
+/* Styling checkboxes */
+input[type="checkbox"] {
+    margin-right: 5px; /* space between checkboxes */
+    vertical-align: middle; /* align checkboxes vertically with text */
+}

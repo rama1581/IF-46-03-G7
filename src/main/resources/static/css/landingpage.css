@@ -1,0 +1,582 @@
+/* Style untuk elemen pertama (landing-page) */
+.landing-page {
+    position: relative;
+    max-width: 1895px;
+    height: 1400px;
+    background: #FFFFFF;
+    /* Properti lain sesuai kebutuhan */
+}
+
+/* Style untuk elemen kedua (Rectangle 120) */
+.rectangle-120 {
+    position: relative;
+    width: 1895px;
+    height: 84px;
+    background: rgba(253, 253, 253, 0.53);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    /* Properti lain sesuai kebutuhan */
+}
+
+
+/* Style untuk elemen ketiga (Chat) */
+.chat {
+    position: absolute;
+    width: 74px;
+    height: 38px;
+    left: 1600px;
+    top: 26px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 38px;
+    text-align: center;
+    color: #9D9D9D;
+    cursor: pointer; /* Tambahkan properti cursor: pointer; */
+    /* Properti lain sesuai kebutuhan */
+}
+
+.chat:hover {
+    color: #00BBB4; /* Warna teks saat diklik */
+}
+
+
+/* Style untuk elemen kelima (Super Small/Active) */
+.super-small-active {
+    position: absolute;
+    width: 182.24px;
+    height: 48px;
+    left: 1700px;
+    top: 18px;
+    background: #00BBB4;
+    border-radius: 8px;
+    /* Properti lain sesuai kebutuhan */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Warna teks sesuai kebutuhan */
+    font-size: 20px; /* Sesuaikan ukuran font sesuai kebutuhan */
+    font-weight: bold; /* Sesuaikan ketebalan font sesuai kebutuhan */
+    cursor: pointer; /* Tambahkan properti cursor: pointer; */
+    user-select: none; /* Menyembunyikan cursor text saat seleksi */
+    text-decoration: none; /* Menghilangkan underline */
+}
+
+
+.super-small-active:hover {
+    background: #008C85; /* Warna latar belakang saat dihover */
+}
+
+
+/* Style untuk elemen keenam belas (Tipe Kost) */
+.tipe-kost {
+    position: absolute;
+    width: 118px;
+    height: 38px;
+    left: 1430px;
+    top: 26px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 38px;
+    text-align: center;
+    color: #9D9D9D;
+    /* Properti lain sesuai kebutuhan */
+}
+
+.expand-down {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 1550px;
+    top: 35px;
+    background-color: #9D9D9D; /* Ganti warna sesuai kebutuhan */
+    /* Properti lain sesuai kebutuhan */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Warna teks sesuai kebutuhan */
+    font-size: 16px; /* Sesuaikan ukuran sesuai kebutuhan */
+    cursor: pointer; /* Tambahkan properti cursor: pointer; */
+}
+
+.expand-down:hover {
+    background: #008C85; /* Warna latar belakang saat dihover */
+}
+
+
+/* Style untuk elemen Logo langsung */
+.logo {
+    position: absolute;
+    width: 178px; /* Sesuaikan lebar sesuai kebutuhan */
+    height: 54px; /* Sesuaikan tinggi sesuai kebutuhan */
+    left: 48px;
+    top: 15px;
+    object-fit: contain; /* Sesuaikan properti ini sesuai kebutuhan untuk penyesuaian ukuran dan aspek logo */
+    /* Properti lain sesuai kebutuhan */
+}
+
+
+.image-1 {
+    position: absolute;
+    max-width: 1300px;
+    height: 634px;
+    left: 300px;
+    right: 300px;
+    top: 130px;
+    object-fit: contain;
+    /* Properti lain sesuai kebutuhan */
+}
+
+
+/* Temukan kost impianmu! */
+.find-dream-kost {
+    position: absolute;
+    max-width: 882px;
+    height: 71px;
+    left: 670px;
+    right: 670px;
+    top: 500px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 75px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    /* Properti lain sesuai kebutuhan */
+}
+
+
+/* Style untuk elemen "Rectangle 121" */
+.rectangle-121 {
+    position: absolute;
+    width: 652px;
+    height: 56px;
+    left: 600px;
+    right: 600px;
+    top: 600px;
+    background: #FFFDFD;
+    border-radius: 90px;
+    /* Properti lain sesuai kebutuhan */
+}
+
+.rectangle-121:hover {
+    background: #9D9D9D; /* Warna latar belakang saat dihover */
+}
+
+/* Style untuk elemen tombol search dalam "Rectangle 121" */
+.rectangle-121 .search-button {
+    /* Properti lain sesuai kebutuhan */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 45%;
+    border: none;
+    background: transparent;
+    cursor: pointer; /* Tambahkan properti cursor: pointer; */
+}
+
+/* Style untuk gambar kaca pembesar dalam tombol search */
+.rectangle-121 .search-button img {
+    width: 24px; /* Sesuaikan lebar gambar sesuai kebutuhan */
+    height: 24px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
+}
+
+/* Efek saat tombol ditekan (klik) dalam "Rectangle 121" */
+.rectangle-121 .search-button:active {
+    /* Properti atau efek yang ingin ditampilkan saat tombol ditekan */
+    transform: translateY(2px); /* Misalnya, menggeser tombol sedikit ke bawah */
+}
+
+
+/* Style untuk elemen "Mau tinggal di daerah mana?" */
+.daerah-mana {
+    position: absolute;
+    width: 343px;
+    height: 35px;
+    left: 620px;
+    right: 620px;
+    top: 610px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 34px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    /* Properti lain sesuai kebutuhan */
+}
+
+
+/* Kost Popular */
+.kost-popular {
+    position: absolute;
+    width: 229px;
+    height: 53px;
+    left: 290px;
+    top: 820px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 52px;
+    text-align: center;
+    color: #00BBB4;
+    /* Additional properties according to your needs */
+}
+
+/* Style untuk elemen "Lihat Semua" */
+.lihat-semua {
+    position: absolute;
+    width: 211px;
+    height: 35px;
+    left: 1430px;
+    top: 820px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #000000;
+    cursor: pointer;
+    /* Properti lain sesuai kebutuhan */
+}
+
+.lihat-semua:hover {
+    color: #008C85; /* Warna latar belakang saat dihover */
+}
+
+/* kost1 */
+.kost1 {
+    position: absolute;
+    width: 300px;
+    height: 262px;
+    left: 370px;
+    top: 920px;
+    object-fit: contain;
+    /* Additional properties according to your needs */
+}
+
+/* kost2 */
+.kost2 {
+    position: absolute;
+    width: 300px;
+    height: 262px;
+    left: 790px;
+    top: 920px;
+    object-fit: contain;
+}
+
+/* kost3 */
+.kost3 {
+    position: absolute;
+    width: 300px;
+    height: 262px;
+    left: 1200px;
+    top: 920px;
+    object-fit: contain;
+}
+
+/* Style untuk elemen "Rectangle kost1" */
+.rectangle-kost1 {
+    position: absolute;
+    width: 130px;
+    height: 46px;
+    left: 370px;
+    top: 1200px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 13px;
+    /* Properti lain sesuai kebutuhan */
+}
+
+/* Style untuk elemen "Sukapura" */
+.lockost1 {
+    position: absolute;
+    left: 27px;
+    top: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 20px;    
+    color: #000000;
+    /* Properti lain sesuai kebutuhan */
+}
+
+.deskkost1 {
+    position: absolute;
+    width: 197px;
+    height: 90px;
+    left: 5px;
+    top: 60px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #000000;
+    cursor: pointer;
+    /* Properti lain sesuai kebutuhan */
+}
+
+/* Style untuk elemen "Rectangle kost2" */
+.rectangle-kost2 {
+    position: absolute;
+    width: 130px;
+    height: 46px;
+    left: 790px;
+    top: 1200px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 13px;
+    /* Properti lain sesuai kebutuhan */
+}
+
+/* Style untuk elemen "Sukabirus" */
+.lockost2 {
+    position: absolute;
+    width: 98px;
+    height: 30px;
+    left: 20px;
+    top: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #000000;
+    /* Properti lain sesuai kebutuhan */
+}
+
+.deskkost2 {
+    position: absolute;
+    width: 208px;
+    height: 90px;
+    left: 5px;
+    top: 60px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #000000;
+    cursor: pointer;
+    /* Properti lain sesuai kebutuhan */
+}
+
+/* Style untuk elemen "Rectangle kost3" */
+.rectangle-kost3 {
+    position: absolute;
+    width: 147px;
+    height: 46px;
+    left: 1200px;
+    top: 1200px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 13px;
+    /* Properti lain sesuai kebutuhan */
+}
+
+/* Style untuk elemen "Margacinta" */
+.lockost3 {
+    position: absolute;
+    width: 116px;
+    height: 30px;
+    left: 20px;
+    top: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #000000;
+    /* Properti lain sesuai kebutuhan */
+}
+
+/* Style untuk elemen "Campur Kost Tulip" */
+.deskkost3 {
+    position: absolute;
+    width: 202px;
+    height: 90px;
+    left: 5px;
+    top: 60px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #000000;
+    cursor: pointer;
+    /* Properti lain sesuai kebutuhan */
+}
+
+
+/* Style for element "Rectanglebawah1" */
+.rectangle {
+    position: relative;
+    width: 1895px;
+    height: 342px;
+    top: 100%;
+    bottom: 0%;
+    background: #00BBB4;
+    /* Other properties as needed */
+}
+
+/* Style for element "Rectanglebawah2" */
+.rectangle .rectangle2 {
+    position: absolute;
+    width: 1895px;
+    height: 63px;
+    bottom: 0%;
+    top: 81.5%;
+    background: rgba(157, 157, 157, 0.7);
+    /* Other properties as needed */
+}
+
+/* Style untuk elemen "copyright" */
+.rectangle .copyright {
+    position: absolute;
+    width: 378px;
+    height: 30px;
+    left: 300px;
+    bottom: 5%;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #000000;
+    /* Properti lain sesuai kebutuhan */
+}
+
+/* Style untuk elemen "logobawah" */
+.logobawah {
+    position: absolute;
+    width: 385px;
+    height: 97.5px;
+    left: 320px;
+    top: 1530px;
+    /* Properti lain sesuai kebutuhan */
+}
+
+/* Style untuk elemen "golivinDescription" */
+.golivinDescription {
+    position: absolute;
+    width: 421px;
+    height: 92px;
+    left: 320px;
+    top: 1650px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #FFFFFF;
+    /* Properti lain sesuai kebutuhan */
+}
+
+/* Style untuk elemen "hubungiKami" */
+.hubungiKami {
+    position: absolute;
+    width: 111px;
+    height: 23px;
+    left: 1172px;
+    top: 1550px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #FFFFFF;
+    /* Properti lain sesuai kebutuhan */
+}
+
+/* Style untuk elemen "nomorTelepon" */
+.nomorTelepon {
+    position: absolute;
+    width: 117px;
+    height: 23px;
+    left: 1212px;
+    top: 1630px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #FFFFFF;
+    /* Properti lain sesuai kebutuhan */
+}
+
+/* Style untuk elemen "emailInfo" */
+.emailInfo {
+    position: absolute;
+    width: 130px;
+    height: 23px;
+    left: 1212px;
+    top: 1590px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #FFFFFF;
+    /* Properti lain sesuai kebutuhan */
+}
+
+/* Style untuk elemen "ellipse1" */
+.ellipse1 {
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    left: 1172px;
+    top: 1590px;
+    background: #D9D9D9;
+    /* Properti lain sesuai kebutuhan */
+}
+
+/* Style untuk elemen "messageFill" */
+.ikonpesan {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 1175px;
+    top: 1592px;
+    /* Properti lain sesuai kebutuhan */
+}
+
+/* Style untuk elemen "ellipse2" */
+.ellipse2 {
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    left: 1172px;
+    top: 1630px;
+    background: #D9D9D9;
+    /* Properti lain sesuai kebutuhan */
+}
+
+/* Style untuk elemen "phoneFill" */
+.ikontelpon {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 1173px;
+    top: 1632px;
+    /* Properti lain sesuai kebutuhan */
+}

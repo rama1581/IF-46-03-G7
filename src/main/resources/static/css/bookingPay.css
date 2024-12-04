@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding:0;
+    font-family: 'Poppins';
+}
+
+.cont_nav{
+    top: 0; 
+    width: 100%; 
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.content_nav button{
+    border-radius: 8px;
+    background: #00BBB4;
+    display: flex;
+    width: 182.237px;
+    height: 48px;
+    padding: 8px 16.237px 10px 16px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    text-align: center;
+    color: white;
+    border: none;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.33px;
+}
+
+.content_nav a{
+    flex-shrink: 0;
+    color: #9D9D9D;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.logo{
+    margin-right: 1470px;
+    width: 178px;
+    height: 54px;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.payment-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.left-section, .right-section {
+    width: 45%;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #555;
+}
+
+button {
+    background-color: #00BBB4;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #008f8b;
+}
+
+.payment-method-option {
+    display: flex;
+    align-items: center; /* Mengatur vertikal tengah */
+    margin-bottom: 10px; /* Mengatur jarak antara setiap baris */
+}
+
+.payment-method-option input[type="radio"] {
+    margin-right: 10px; /* Mengatur jarak antara radio button dan label */
+}
+
+.modal-title h5 {
+    font-family: 'Poppins', sans-serif;
+}

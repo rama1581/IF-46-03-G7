@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding:0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cont_nav{
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.content_nav button{
+    border-radius: 8px;
+    background: #00BBB4;
+    display: flex;
+    width: 182.237px;
+    height: 48px;
+    padding: 8px 16.237px 10px 16px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    text-align: center;
+    color: white;
+    border: none;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.33px;
+}
+
+.content_nav a{
+    flex-shrink: 0;
+    color: #9D9D9D;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+
+.desc_kost button{
+    width: 214px;
+    height: 46px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.addkos button{
+    width: 422px;
+    height: 650px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.desc_kost p{
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.text h1{
+    margin-left: 150px;
+    margin-top: 50px;
+    color: #000000;
+    font-family: Poppins;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: bolder;
+    line-height: normal;
+}
+
+.text2 h2{
+    margin-left: 150px;
+    margin-top: 50px;
+    color: #000000;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    line-height: normal;
+}
+
+.logo{
+    margin-right: 1470px;
+    width: 178px;
+    height: 54px;
+}
+
+.modal-title h5 {
+    font-family: 'Poppins', sans-serif;
+}

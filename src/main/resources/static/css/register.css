@@ -1,0 +1,146 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.cont_nav{
+    background-color: #1c1c1c; /* Warna latar belakang gelap */
+    padding: 10px 30px;
+}
+
+.content_nav button{
+    border-radius: 8px;
+    background: #00BBB4;
+    display: flex;
+    width: 182.237px;
+    height: 48px;
+    padding: 8px 16.237px 10px 16px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    text-align: center;
+    color: white;
+    border: none;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.33px;
+}
+
+.content_nav a{
+    flex-shrink: 0;
+    color: #9D9D9D;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.modal-header{
+    width: 428px;
+    height: 50px;
+    object-fit: cover;
+}
+
+
+.ActivityPage{
+    background-color: #F1CD86;
+    height: 70px;
+}
+
+.ActivityPage h1{
+    margin-left: 25px;
+    color: #000;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.ActivityPage a {
+    margin-top: 7px;
+    margin-left: 427px;
+    color: black !important;
+    text-align: right;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.ActivityPage span{
+    color: #000;
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.form-control{
+    width: 800px;
+    height: 46px;
+}
+
+.regist {
+    margin-left: 240px;
+}
+
+.regist button {
+    background: #00BBB4;
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px #00000040;
+    border: none;
+}
+
+.regist a {
+    color: #00BBB4;
+    cursor: pointer;
+}
+
+.registpage img {
+    margin-left: 300px;
+    margin-top: 50px;
+    object-fit: cover;
+    width: 600px;
+}
+
+
+.container {
+    display: flex;         /* Menggunakan flexbox untuk tata letak */
+    align-items: center;   /* Pusatkan item secara vertikal */
+}
+
+.error-container {
+    display: flex;         /* Menggunakan flexbox untuk tata letak */
+    align-items: center;   /* Pusatkan item secara vertikal */
+   /* Jarak dari tombol "Daftar" */
+}
+
+.error-box {
+    border-radius: 10px;
+    border: 2px solid red;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    width: fit-content;    /* agar kotak menyesuaikan dengan konten di dalamnya */
+     /* Jarak antar kotak pesan kesalahan */
+}
+
+.error-message {
+    display: inline;       /* agar pesan kesalahan muncul dalam baris yang sama */
+    color: white;          /* Warna teks putih */
+    font-weight: bold;     /* Teks menjadi tebal (bold) */
+}
+
+
+

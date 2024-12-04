@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding:0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cont_nav{
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.content_nav button{
+    border-radius: 8px;
+    background: #00BBB4;
+    display: flex;
+    width: 182.237px;
+    height: 48px;
+    padding: 8px 16.237px 10px 16px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    text-align: center;
+    color: white;
+    border: none;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.33px;
+}
+
+.content_nav a{
+    flex-shrink: 0;
+    color: #9D9D9D;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.logo{
+    margin-right: 1470px;
+    width: 178px;
+    height: 54px;
+}
+
+.main {
+    margin-top: 45px;
+    padding: 5px;
+}
+
+.main h1 {
+    margin-left: 285px;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+
+.main h2 {
+    padding-top: 0px;
+    margin-left: 285px;
+    font-size: small;
+    font-weight: lighter;
+    margin-bottom: 0px;
+}
+
+.main textarea {
+    border-radius: 10px;
+}
+
+.form {
+    margin-left: 270px;
+}
+
+.form-check {
+    margin-left: 285px;
+}
+
+.form-control {
+    margin-top: 0px;
+    border-radius: 5px; 
+    padding: 5px; 
+    margin-left: 15px;
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid #C6C6C6;
+}
+
+
+.form-control-fasilitas {
+    margin-top: 0px;
+    border-radius: 5px; 
+    padding: 5px;  
+    margin-left: 15px;
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid #C6C6C6;
+}
+
+.main a {
+    color: #00BBB4;
+    cursor: pointer;
+    text-align: right;
+}
+
+.buttonedit{
+    width: 100px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}

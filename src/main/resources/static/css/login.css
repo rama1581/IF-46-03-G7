@@ -1,0 +1,234 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins';
+}
+
+.cont_nav {
+    background-color: #1c1c1c; /* Warna latar belakang gelap */
+    padding: 10px 70px;
+}
+
+.content_nav button{
+    border-radius: 8px;
+    background: #00BBB4;
+    display: flex;
+    width: 182.237px;
+    height: 48px;
+    padding: 8px 16.237px 10px 16px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    text-align: center;
+    color: white;
+    border: none;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.33px;
+}
+
+.content_nav a{
+    flex-shrink: 0;
+    color: #9D9D9D;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+
+.ActivityPage{
+    background-color: #F1CD86;
+    height: 70px;
+}
+
+.ActivityPage h1{
+    margin-left: 25px;
+    color: #000;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.ActivityPage a {
+    margin-top: 7px;
+    margin-left: 427px;
+    color: black !important;
+    text-align: right;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.ActivityPage span{
+    color: #000;
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.login1 {
+    margin-left: 240px;
+}
+
+.login1 button {
+    background: #00BBB4;
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px #00000040;
+    border: none;
+}
+
+.login1 a {
+    color: #00BBB4;
+    cursor: pointer;
+}
+
+.login1 a1 {
+    color: #00BBB4;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+.footer_cont{
+    height: 300px;
+    background: #00BBB4;
+}
+
+.description p{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.contact{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+}
+
+.email a{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.telpon a{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.form-control{
+    width: 1400px;
+    height: 46px;
+}
+
+.desc_kost button{
+    width: 214px;
+    height: 46px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.desc_kost p{
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.text h1{
+    margin-left: 35px;
+    color: #00BBB4;
+    font-family: Poppins;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.logo{
+    margin-right: 1470px;
+    width: 250px;
+    height: 54px;
+}
+
+.item button{
+    margin-left: 20px;
+    width: 428px;
+    height: 72px;
+    border-radius: 13px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.modal-header{
+    width: 428px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.error-box {
+    border-radius: 10px;
+    border: 2px solid red;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    width: fit-content; /* agar kotak menyesuaikan dengan konten di dalamnya */
+}
+
+.error-message {
+    display: inline;     /* agar pesan kesalahan muncul dalam baris yang sama */
+    color: white;        /* Warna teks putih */
+    font-weight: bold;   /* Teks menjadi tebal (bold) */
+}
+
+.error-container {
+    display: flex;         /* Menggunakan flexbox untuk tata letak */
+    align-items: flex-start; /* Mengatur item agar berjejer di atas (vertikal) */
+    flex-direction: column; /* Mengatur arah konten menjadi vertikal */
+
+}
+
+
+
+

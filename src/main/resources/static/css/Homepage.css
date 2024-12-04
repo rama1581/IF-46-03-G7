@@ -1,0 +1,291 @@
+*{
+    margin: 0;
+    padding:0;
+    font-family: 'Poppins';
+}
+
+
+.carousel-indicators button{
+    border-radius: 20%;
+}
+
+.carousel-indicators button.active {
+    background-color: #00BBB4;
+}
+
+.carousel-item h1{
+    font-family: "Poppins-Bold", sans-serif;
+    text-shadow: 1px 1px 1px #000;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 50px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin-top: 20px; 
+}
+
+.search-input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 652px;
+    height: 56px;
+    border: none;
+    outline: none;
+    border-radius: 90px;
+    background-color: #ffffff;
+    padding: 10px 15px;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px; 
+    font-family: "Poppins-Regular", Helvetica;
+    background-color: transparent;
+    padding: 10px;
+}
+
+.search-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.fas fa-search {
+    color: #333;
+    font-size: 18px;
+}
+
+
+.cont_nav {
+    background-color: #1c1c1c; /* Warna latar belakang gelap */
+    padding: 10px 30px;
+}
+
+.content_nav button{
+    border-radius: 8px;
+    background: #00BBB4;
+    display: flex;
+    width: 182.237px;
+    height: 48px;
+    padding: 8px 16.237px 10px 16px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    text-align: center;
+    color: white;
+    border: none;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.33px;
+}
+
+.content_nav a{
+    flex-shrink: 0;
+    color: #9D9D9D;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.input-search{
+    position: absolute;
+    width: 652px;
+    height: 56px;
+    flex-shrink: 0;
+    margin-right: 50px;
+    border-radius: 90px;
+    background: #FFFDFD;
+}
+
+.footer_cont{
+    height: 300px;
+    background: #00BBB4;
+}
+
+.description p{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.contact{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+}
+
+.email a{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.telpon a{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.desc_kost button{
+    width: 214px;
+    height: 46px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.desc_kost p{
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.text h1{
+    margin-left: 300px;
+    color: #00BBB4;
+    font-family: Poppins;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: bolder;
+    line-height: normal;
+}
+
+.logo {
+    margin-right: 1470px;
+    width: 178px;
+    height: 54px;
+}
+
+.logo img {
+    width: auto; /* Menyesuaikan lebar sesuai rasio gambar asli */
+    height: auto; /* Menyesuaikan tinggi sesuai rasio gambar asli */
+    object-fit: contain; /* Pastikan logo tidak terpotong */
+    border-radius: 0; /* Menghapus efek melingkar/oval */
+    display: flex;
+    align-items: center;
+    padding: 6px; /* Menambahkan ruang di sekitar logo */
+    background-color: transparent; /* Pastikan latar belakangnya transparan */
+}
+
+.tipe-kost-btn {
+    background-color: #f8f8f8; /* Warna latar tombol dropdown */
+    color: #1c1c1c; /* Warna teks dropdown */
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 5px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.tipe-kost-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.registrasi-btn, .masuk-btn {
+    background-color: #fff; /* Warna putih */
+    color: #1c1c1c; /* Warna teks hitam */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 5px 15px;
+    margin-left: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.registrasi-btn:hover, .masuk-btn:hover {
+    background-color: #e0e0e0;
+    border-color: #bbb;
+}
+
+.modal-title h5 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.content_nav notif-icon {
+    cursor: pointer;
+    margin-right: 50px;
+    line-height: 60px;
+}
+
+.content_nav notif-box {
+    width: 500px;
+    height: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.content_nav h1 {
+    font-family: 'Poppins';
+    font-size: 1px;
+    font-weight: bolder;
+    margin-top: 10px;
+}
+
+.content_nav notif-item {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    padding: 15px 5px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.content_nav img {
+    display: block;
+    width: 20px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.content_nav h2 {
+    color: black;
+    font-size: 7px;
+    margin-top: 10px;
+}
+
+.content_nav p {
+    color: #000;
+    font-size: 5px;
+}

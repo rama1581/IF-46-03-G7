@@ -1,0 +1,47 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo {
+    display: flex;
+    justify-content: center; /* Memposisikan secara horizontal */
+    align-items: center;     /* Memposisikan secara vertikal */
+    padding-top: 300px;
+}
+
+
+.login1 button {
+    background: #00BBB4;
+    width: 150px;
+    height: 36px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px #00000040;
+}
+
+.login1 {
+    margin-left: 830px;
+    margin-top: 20px;
+
+}
+
+.login1 button {
+    background: #00BBB4;
+    width: 150px;
+    height: 36px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 4px 4px #00000040;
+}
+
+.login1 a {
+    color: #00BBB4;
+    cursor: pointer;
+}
+
+.login1 a1 {
+    color: #00BBB4;
+    font-size: 14px;
+    cursor: pointer;
+}

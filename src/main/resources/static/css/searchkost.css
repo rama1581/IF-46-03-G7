@@ -1,0 +1,40 @@
+
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-input-container {
+    display: flex;
+    justify-content: center;
+    width: 450px;
+    height: 56px;
+    border: none;
+    outline: none;
+    border-radius: 90px;
+    background-color: #00BBB4;
+    padding: 5px 10px;
+    margin: 0 auto;
+}
+
+.search-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 400;
+    font-family:"Poppins-Regular", Helvetica;
+    background-color: transparent;
+}
+
+.search-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.fas fa-search {
+    color: #000000;
+    font-size: 18px;
+}
