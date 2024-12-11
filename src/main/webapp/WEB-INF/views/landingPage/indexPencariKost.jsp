@@ -2,332 +2,215 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
-<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>homepage</title>
-    <link rel="stylesheet" href="./css/Homepage.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Homepage</title>
+    <link rel="stylesheet" href="css/Homepage.css" />
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </head>
-<body>
-    <style>
-        #notifDiv {
-            /* ... gaya-gaya lain ... */
-            font-size: 16px;
-            line-height: 1.6;
-        }
+<body class="home">
 
-        .notif-item img {
-            width: 50px;
-            margin-right: 10px;
-        }
-
-        .notif-item h2 {
-            font-size: 1.2em;
-            margin-top: 0;
-        }
-
-        .notif-item p {
-            font-size: 1em;
-            margin-bottom: 15px;
-        }   
-    </style>
-
-    <!-- navbar section start -->
-    <section class="header">
-        <div class="container-fluid cont_nav" style="height: 84px;">
-            <ul class="nav nav-pills justify-content-end content_nav">
-                <li class="logo my-2">
-                    <img src="./aset/logo.png" alt="" style="height: 54px; width: 178px;margin-right: 1470px;">
-                </li>
-                <li class="nav-item dropdown my-3">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tipe Kost</a>
-                    <ul class="dropdown-menu" >
-                        <li><a class="dropdown-item" style="text-align: left;" href="./listPutra.jsp">Putra</a></li>
-                        <li><a class="dropdown-item" style="text-align: left;" href="./listPutri.jsp">Putri</a></li>
-                        <li><a class="dropdown-item" style="text-align: left;" href="./listCampur.jsp">Campur</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item my-3" onclick="toggleNotif()">
-                    <a class="nav-link" href="#">
-                        <img src="./aset/notification.png" alt="Icon Notif" style="width: 30px;"/>
-                    </a>
-                </li>
-                <!-- Struktur notifikasi yang akan ditampilkan saat di-klik -->
-                <div id="notifDiv" style="display: none; position: absolute; right: 10px; top: 50px; width: 300px; background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px; z-index: 100;">
-                    <!-- Isi notifikasi Anda di sini -->
-                    <!-- <div class="notif-item">
-                        <img src="./aset/notif1.png" alt="">
-                        <h2>Booked kost berhasil!</h2>
-                        <p>Kamu berhasil melakukan booking kost Sazira dengan tanggal check in 5 Januari 2023 dan check out 5 Januari 2024</p>
-                    </div>
-                    <div class="notif-item">
-                        <img src="./aset/notif1.png" alt="">
-                        <h2>Booked kost berhasil!</h2>
-                        <p>Kamu berhasil melakukan booking kost Sazira dengan tanggal check in 5 Januari 2022 dan check out 5 Januari 2023</p>
-                    </div> -->
-                    <c:forEach var="notification" items="${notifications}">
-                        <div class="notif-item">
-                            <img src="./aset/notif1.png" alt="">
-                            <!-- <h2>Booked kost berhasil!</h2> -->
-                            <p>${notification.message}</p>
-                        </div>
-                    </c:forEach>
-                </div>
-                <li class="nav-item dropdown2 my-3">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-                        <img src="./aset/ikonuser.png" alt="Icon User" style="width: 30px;"/>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" style="text-align: left;" href="#">Edit Profil</a></li>
-                        <li><a class="dropdown-item" style="text-align: left;" href="/booking/list">Riwayat Booking</a></li>
-                        <li><a class="dropdown-item" style="text-align: left;" href="#" data-bs-toggle="modal" data-bs-target="#logoutGolivin">Logout</a></li>
-
-                    </ul>
-                </li>
-                
-            </ul>
-        </div>
-    </section>
-    <!-- navbar section end -->
-
-    <!-- slider section start -->
-    <section>
-        <div class="col-sm-12 px-4 pt-5">
-            <div id="carouselExampleCaptions" class="carousel slide">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                </div>
-
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="./aset/Cslide1.jpg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block my-5">
-                            <h1>Temukan Kost Impianmu!</h1>
-                            <!-- SearchBar Start -->
-                            <div class="search-bar">
-                                <form action="/kost/search" method="get">
-                                    <div class="search-input-container">
-                                        <input type="text" class="search-input" placeholder="Mau tinggal di daerah mana?" name="query">
-                                        <button type="submit" class="search-button">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>                            
-                            <!-- SearchBar End -->
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <img src="./aset/Cslide2.jpg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block my-5">
-                            <h1>Temukan Kost Impianmu!</h1>
-                            <!-- SearchBar Start -->
-                            <div class="search-bar">
-                                <form action="/kost/search" method="get">
-                                    <div class="search-input-container">
-                                        <input type="text" class="search-input" placeholder="Mau tinggal di daerah mana?" name="query">
-                                        <button type="submit" class="search-button">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div> 
-                            <!-- SearchBar End -->
-                        </div>
-                    </div>
-                </div>
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-    </section>
-    <!-- slider section end -->
-
-    <!-- kos section start -->
-    <section class="list_kost">
-        <div class="text my-5">
-            <h1>Kost Popular</h1>
-        </div>
-        <div class="container my-5">
-            <!-- <div class="row border border-danger"></div> -->
-            <div class="row">
-                <div class="col-4 desc_kost my-3">
-                    <img src="./aset/kost1.jpg" alt="">
-                    <button class="my-3">
-                        <b>Kost Rumah Sazira</b>
-                    </button>
-                    <div class="d-flex flex-column">
-                        <p class="m-0">Khusus Putri</p>
-                        <p class="m-0">Sukapura</p>
-                        <p>Rp 1.100.000 / bulan</p>
-                    </div>
-                </div>
-                <div class="col-4 desc_kost my-3">
-                    <img src="./aset/kost2.png" alt="">
-                    <button class="my-3">
-                        <b>Kost Saraswati</b>
-                    </button>
-                    <div class="d-flex flex-column">
-                        <p class="m-0">Khusus Putri</p>
-                        <p class="m-0">Sukabirus</p>
-                        <p>Rp 1.100.000 / bulan</p>
-                    </div>
-                </div>
-                <div class="col-4 desc_kost my-3">
-                    <img src="./aset/kost3.png" alt="">
-                    <button class="my-3">
-                        <b>Kost Seven Days</b>
-                    </button>
-                    <div class="d-flex flex-column">
-                        <p class="m-0">Khusus Putra</p>
-                        <p class="m-0">PGA</p>
-                        <p>Rp 1.100.000 / bulan</p>
-                    </div>
-                </div>
-                <div class="col-4 desc_kost my-3">
-                    <img src="./aset/kost3.png" alt="">
-                    <button class="my-3">
-                        <b>Kost Tirta Asri</b>
-                    </button>
-                    <div class="d-flex flex-column">
-                        <p class="m-0">Khusus Putri</p>
-                        <p class="m-0">Ciganitri</p>
-                        <p>Rp 1.100.000 / bulan</p>
-                    </div>
-                </div>
-                <div class="col-4 desc_kost my-3">
-                    <img src="./aset/kost2.png" alt="">
-                    <button class="my-3">
-                        <b>Kost GG</b>
-                    </button>
-                    <div class="d-flex flex-column">
-                        <p class="m-0">Khusus Campur</p>
-                        <p class="m-0">Sukapura</p>
-                        <p>Rp 1.100.000 / bulan</p>
-                    </div>
-                </div>
-                <div class="col-4 desc_kost my-3">
-                    <img src="./aset/kost1.jpg" alt="">
-                    <button class="my-3">
-                        <b>Kost House Of Edith</b>
-                    </button>
-                    <div class="d-flex flex-column">
-                        <p class="m-0">Khusus Putra</p>
-                        <p class="m-0">Margacinta</p>
-                        <p>Rp 1.100.000 / bulan</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- kos section end -->
-
-    <!-- footer section start -->
-    <section>
-        <div class="container-fluid footer_cont">
-            <div class="row">
-                <div class="col-4 description p-5">
-                    <img class="mx-5" src="./aset/logobawah.png" alt="">
-                    <p class="mx-5"> KOST-IN memanfaatkan teknologi untuk berkembang<br>
-                        menjadi website yang memudahkan calon anak kos<br>
-                        di wilayah Telkom University untuk booking properti kos<br> 
-                        dan juga melakukan pembayaran kos.</p>
-                </div>
-                <div class="col-5">
-                    <p>&nbsp;</p>
-                </div>
-                <div class="col-3 contact p-5">
-                    <a>Hubungi Kami</a>
-                    <div class="row my-2">
-                        <div class="col-1">
-                            <img src="./aset/pesan.png" alt="">
-                        </div>
-                        <div class="col-5 email">
-                            <a href="#"><u>info@kostin.com</u></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-1 ">
-                            <img src="./aset/telpon.png" alt="">
-                        </div>
-                        <div class="col-5 telpon">
-                            <a href="#"><u>0899-3322-1212</u></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- footer section end -->
-
-    <!-- Modal Logout Start -->
-    <section>
-        <div class="modal logout" id="logoutGolivin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content shadow-lg">
-                    <div class="modal-header bg-gray-200">
-                        <h5 class="modal-title text-xm font-weight-bold text-info text-uppercase" id="logoutModalLabel">Keluar</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Anda yakin ingin keluar?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light shadow-lg waves-effect" data-bs-dismiss="modal">
-                            <i class="fas fa-window-close"></i>Batal
-                        </button>
-                        <a type="button" class="btn btn-info shadow-lg waves-effect" onclick="logoutAndRedirect()">
-                            <i class="fas fa-sign-out-alt"></i>Ya, keluar
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; opacity: 0.75; width: 100%; padding: 10px 0;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/home">
+                <img src="../aset/Home.png" alt="KOST-IN" width="120px" height="40px">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- Dropdown Cari Apa? -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Cari Apa?
                         </a>
+                        <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../putri">Kost Wanita</a></li>
+                            <li><a class="dropdown-item" href="../putra">Kost Pria</a></li>
+                            <li><a class="dropdown-item" href="../campur">Kost Campur</a></li>
+                        </ul>
+                    </li>
+                    <!-- Pusat Bantuan -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#helpModal">Pusat Bantuan</a>
+                    </li>
+                    
+                    <!-- Dropdown Notifikasi dengan Toggler -->
+                    <li class="nav-item position-relative">
+                        <a class="nav-link" href="#" id="notificationToggle">
+                            <img src="../aset/Bell.png" alt="Notifikasi" width="35px" height="35px">
+                        </a>
+                    </li>
+                    
+                    <!-- Pesan notifikasi di luar navbar -->
+                    <div id="notificationMessage" 
+                    style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+                        background-color: rgba(0, 0, 0, 0.8); color: white; font-size: 18px;
+                        padding: 10px 30px; border-radius: 25px; display: none; z-index: 1000;
+                        white-space: nowrap; min-width: 200px; text-align: center;">
+                    </div>
+
+                    <script>
+                    // JavaScript untuk mengatur toggle notifikasi
+                    let isNotificationEnabled = false; // Status awal: Notifikasi dimatikan
+
+                    document.getElementById('notificationToggle').addEventListener('click', function (e) {
+                    e.preventDefault(); // Mencegah reload halaman
+                    const messageElement = document.getElementById('notificationMessage');
+
+                    // Toggle status notifikasi
+                    isNotificationEnabled = !isNotificationEnabled;
+
+                    if (isNotificationEnabled) {
+                        messageElement.textContent = "Notifikasi dinyalakan";
+                        messageElement.style.display = "block";
+                    } else {
+                        messageElement.textContent = "Notifikasi dimatikan";
+                        messageElement.style.display = "block";
+                    }
+
+                    // Sembunyikan pesan setelah 3 detik
+                    setTimeout(() => {
+                        messageElement.style.display = "none";
+                    }, 3000);
+                    });
+                    </script>
+                    <!-- Foto User Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="../aset/icon.png" alt="Login" width="40px" height="40px">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-start dropdown-menu-end">
+                            <li><a class="dropdown-item" href="../editprofile">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="../booking/list">Riwayat Booking</a></li>
+                            <li><a class="dropdown-item" href="../logout">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal Konfirmasi Logout -->
+        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="logoutModalLabel">Konfirmasi Logout</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Apakah Anda yakin ingin keluar?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button id="confirmLogout" class="btn btn-danger">Keluar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Tangkap tombol logout di dropdown dan tambahkan event listener
+        document.querySelectorAll('a[href="../logout"]').forEach(function (logoutLink) {
+        logoutLink.addEventListener('click', function (event) {
+            event.preventDefault(); // Cegah redirect langsung
+            const logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
+            logoutModal.show(); // Tampilkan modal konfirmasi logout
+        });
+    });
+
+    // Ketika tombol "Keluar" diklik pada modal
+    document.getElementById('confirmLogout').addEventListener('click', function () {
+        window.location.href = "../logout"; // Ganti dengan URL logout Anda
+    });
+</script>
+
+
+    
+    <!-- Modal Pusat Bantuan -->
+    <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="helpModalLabel">Pusat Bantuan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Selamat datang di Pusat Bantuan Kost-In! Jika Anda membutuhkan bantuan terkait pencarian kost, pengaturan akun, atau masalah lainnya silahkan kontak ke email kami @cs.kostin.com</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero bg-cover bg-center text-white">
+        <div class="container d-flex justify-content-start align-items-center" style="height: 100%; margin-left: 150px;">
+            <div class="text-start">
+                <h1 class="display-4 mb-3">Mau Cari Kos?</h1>
+                <p class="lead mb-4">Dapatkan Infonya Dan Langsung Sewa Di Kost-In Aja</p>
+                <!-- Search bar -->
+                <form action="/kost/search" method="get" class="d-flex justify-content-start">
+                    <div class="input-group w-75">
+                        <input type="text" class="form-control" placeholder="Masukkan Lokasi/Area/Alamat" name="query">
+                        <button class="btn btn-primary" type="submit">Cari <i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <br><br><br><br><br>
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-4">
+        <div class="container position-relative">
+            <div class="language-country position-absolute">
+                <div>
+                    <label for="language" class="text-white">Language</label>
+                    <select id="language" class="form-select">
+                        <option value="english">English</option>
+                        <option value="indonesian">Indonesian</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="country" class="text-white">Country</label>
+                    <select id="country" class="form-select">
+                        <option value="us">United States</option>
+                        <option value="id">Indonesia</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <div class="social-media mb-4">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <div class="contact">
+                        <ul class="list-unstyled">
+                            <li><b>Contact</b></li>
+                            <li><a href="#" class="text-white">Customer Support</a></li>
+                            <li><a href="#" class="text-white">Submit a Request</a></li>
+                            <li><a href="#" class="text-white">Support Center</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-<!-- Modal Logout End -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script>
-        function logoutAndRedirect() {
-            window.location.href = '${pageContext.request.contextPath}/logout';
-        }
-    </script>
-    <!-- <script src="../src/main/webapp/WEB-INF/views/notif.js"></script> -->
-    <script>
-        function toggleNotif() {
-            // Ambil elemen notifikasi
-            var notifDiv = document.getElementById("notifDiv");
-    
-            // Toggle tampilan notifikasi
-            if (notifDiv.style.display === "none" || notifDiv.style.display === "") {
-                notifDiv.style.display = "block";
-            } else {
-                notifDiv.style.display = "none";
-            }
-        }
-    </script>
-    
-    
+    </footer>
+
+    <!-- Bootstrap 5 Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
