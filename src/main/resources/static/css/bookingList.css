@@ -107,3 +107,29 @@
 .modal-title h5 {
     font-family: 'Poppins', sans-serif;
 }
+
+/* Agar konten tidak tertutup navbar */
+.list_kost {
+    padding-top: 120px; /* Sesuaikan sesuai ketinggian navbar */
+}
+
+/* Menjadikan judul "Riwayat Transaksi" ke tengah */
+.text h1 {
+    margin-top: 60px;
+    margin-left: 0; /* pastikan margin-left dihapus atau di-set ke 0 */
+}
+
+
+/* Memberikan bayangan pada kotak */
+.desc_kost {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Agar gambar terpusat dan pas di dalam kotak */
+.desc_kost img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
