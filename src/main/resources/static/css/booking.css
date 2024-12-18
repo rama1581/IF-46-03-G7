@@ -46,20 +46,24 @@
     height: 54px;
 }
 
-.text h1{
-    margin-top: 30px;
+.text h1 {
+    margin-top: 80px; /* Atur jarak ke bawah */
     color: #000000;
     font-family: Poppins;
     font-size: 50px;
     font-weight: bolder;
+    margin-left: 325px;
 }
 
 .container {
-    position: relative;
-    background: #EEEEEE;
-    border-radius: 8px;
-    box-shadow: 0 2px 12px 0 rgba(11, 17, 52, .15);
+    width: 90%; /* Lebar 90% dari layar */
+    margin: 20px auto; /* Memberikan margin atas dan bawah, auto untuk rata tengah */
+    background: #EEEEEE; /* Warna latar tetap */
+    border-radius: 8px; /* Tetap mempertahankan radius sudut */
+    box-shadow: 0 2px 12px 0 rgba(11, 17, 52, 0.15); /* Tetap mempertahankan shadow */
+    padding: 20px; /* Tambahkan padding agar konten tidak menempel ke tepi */
 }
+
 
 .text3 h2{
     margin-top: 40px;
@@ -173,4 +177,14 @@ ul {
 
 .row .btn-success:hover {
     background-color: #007c75; 
+}
+
+.booking {
+    display: flex; /* Gunakan Flexbox */
+    justify-content: center; /* Memusatkan secara horizontal */
+    align-items: center; /* Memusatkan secara vertikal */
+    min-height: 100vh; /* Tinggi minimal layar penuh */
+    margin: 0; /* Hilangkan margin bawaan */
+    padding: 20px; /* Sedikit padding agar konten tidak mepet */
+    box-sizing: border-box;
 }
