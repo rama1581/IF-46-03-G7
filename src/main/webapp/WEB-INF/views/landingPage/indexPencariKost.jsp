@@ -161,7 +161,7 @@
                 <!-- Search bar -->
                 <form action="/kost/search" method="get" class="d-flex justify-content-start">
                     <div class="input-group w-75">
-                        <input type="text" class="form-control" placeholder="Masukkan Lokasi/Area/Alamat" name="query">
+                        <input type="text" name="q" placeholder=" Masukkan Lokasi/Area/Alamat" value="${query}" />
                         <button class="btn btn-primary" type="submit">Cari <i class="fas fa-search"></i></button>
                     </div>
                 </form>
@@ -169,6 +169,7 @@
         </div>
     </header>
 
+    
     <br><br><br><br><br>
     <!-- Footer -->
     <footer class="footer bg-dark text-white py-4">
@@ -212,5 +213,6 @@
 
     <!-- Bootstrap 5 Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <jsp:include page="/WEB-INF/views/chat.jsp" />
 </body>
 </html>
