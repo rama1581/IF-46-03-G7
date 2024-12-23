@@ -15,7 +15,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; opacity: 0.75; width: 100%; padding: 10px 0;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/home">
+            <a class="navbar-brand" href="../">
                 <img src="../aset/Home.png" alt="KOST-IN" width="120px" height="40px">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -116,7 +116,7 @@
     <!-- Content Start -->
     <section class="content">
         <div class="container">
-            <h1>Daftar Kost Putri</h1>
+            <h1 class="page-title">Daftar Kost Putri</h1>
             <div class="row">
                 <!-- Contoh Kartu Kost -->
                 <div class="col-md-4">
@@ -125,6 +125,66 @@
                         <div class="card-body">
                             <h5 class="card-title">Kost Putri A</h5>
                             <p class="card-text">Harga: Rp 1.200.000/bulan</p>
+                            <a href="#" class="btn btn-primary">Detail</a>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Kost Putri B -->
+                 <div class="col-md-4">
+                    <div class="card">
+                        <img src="../aset/kost2.jpg" class="card-img-top" alt="Kost Putra 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Kost Putri B</h5>
+                            <p class="card-text">Harga: Rp 1.300.000/bulan</p>
+                            <a href="#" class="btn btn-primary">Detail</a>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Kost Putri C -->
+                 <div class="col-md-4">
+                    <div class="card">
+                        <img src="../aset/kost3.jpg" class="card-img-top" alt="Kost Putra 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Kost Putri C</h5>
+                            <p class="card-text">Harga: Rp 1.400.000/bulan</p>
+                            <a href="#" class="btn btn-primary">Detail</a>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Kost Putri D -->
+                 <div class="col-md-4">
+                    <div class="card">
+                        <img src="../aset/kost3.jpg" class="card-img-top" alt="Kost Putra 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Kost Putri D</h5>
+                            <p class="card-text">Harga: Rp 1.500.000/bulan</p>
+                            <a href="#" class="btn btn-primary">Detail</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kost Putri E -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../aset/kost3.jpg" class="card-img-top" alt="Kost Putra 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Kost Putri E</h5>
+                            <p class="card-text">Harga: Rp 1.600.000/bulan</p>
+                            <a href="#" class="btn btn-primary">Detail</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kost Putri F -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../aset/kost3.jpg" class="card-img-top" alt="Kost Putra 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Kost Putra F</h5>
+                            <p class="card-text">Harga: Rp 1.700.000/bulan</p>
                             <a href="#" class="btn btn-primary">Detail</a>
                         </div>
                     </div>
