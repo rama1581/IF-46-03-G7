@@ -5,76 +5,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>approval kost</title>
-    <link rel="stylesheet" href="/css/approvalpembayaran.css"/>
+    <title>Daftar User</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/approvalkost2.css">
 </head>
 <body>
-    
-    <!-- section navbar start -->
-    <section>
-        <div class="sidebar">
-            <div class="image">
-                <img src="/aset/Logo copy.png" alt="">
-            </div>
-            <ul class="nav">
-                <li>
-                    <a href="${pageContext.request.contextPath}/dashboard/kost" style="color: black; text-decoration: none;">
-                        <img src="/aset/pemilik.png" alt="approvalkos" style="vertical-align: middle; margin-right: 10px;">
-                        <span>Kost</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="${pageContext.request.contextPath}/dashboard/booking" style="color: black; text-decoration: none; margin-left: 7px;">
-                        <img src="/aset/pembayaran.png" alt="payment" style="vertical-align: middle; margin-right: 14px;">
-                        <span>Booking</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="${pageContext.request.contextPath}/dashboard/pencariKost" style="color: black; text-decoration: none;">
-                        <img src="/aset/pencari.png" alt="pencarikos" style="vertical-align: middle; margin-right: 14px;">
-                        <span>Pencari Kost</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="${pageContext.request.contextPath}/logout" style="color: black; text-decoration: none;">
-                        <img src="/aset/out.png" alt="pencarikos" style="vertical-align: middle; margin-right: 24px;">
-                        <span>Logout</span>
-                    </a>
-                </li>
-            </ul>
-    </section>
-    <!-- section navbar end -->
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="image">
+            <img src="/aset/Logo copy.png" alt="Logo">
+        </div>
+        <ul>
+            <li>
+                <a href="${pageContext.request.contextPath}/dashboard/kost">
+                    <img src="/aset/pemilik.png" alt="Pemilik Kost"> Kost
+                </a>
+            </li>
+            <li>
+                <a href="${pageContext.request.contextPath}/dashboard/booking">
+                    <img src="/aset/pembayaran.png" alt="Pembayaran"> Booking
+                </a>
+            </li>
+            <li>
+                <a href="${pageContext.request.contextPath}/dashboard/pencariKost">
+                    <img src="/aset/pencari.png" alt="Pencari Kost"> Pencari Kost
+                </a>
+            </li>
+            <li>
+                <a href="${pageContext.request.contextPath}/logout">
+                    <img src="/aset/out.png" alt="Logout"> Logout
+                </a>
+            </li>
+        </ul>
+    </div>
 
-    <!-- section pencari kost start -->
-    <section>
-        <div class="container my-3"> 
-            <div class="text" style="font-size: 20px; margin-left: 280px;">
-                <h1>Daftar User</h1>
-            </div>
+    <!-- Content -->
+    <div class="content">
+        <h1>Daftar User</h1>
+        <div class="search-box">
             <form>
-                <div class="search">
-                    <!-- <span class="search-icon material-symbols-outlined">search</span> -->
-                    <input class="search-input" type="search" placeholder="Search User">
-                    <button type="submit" class="search-button">Go</button>
-                </div>
+                <input type="text" placeholder="Search User">
+                <button type="submit">Go</button>
             </form>
         </div>
 
-        <table class="table">
+        <table>
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Password</th>
-                    <th scope="col">No HP</th>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>No HP</th>
                 </tr>
             </thead>
             <tbody>
                 <c:forEach var="pencariKost" items="${pencariKosts}">
                     <tr>
-                        <th scope="row">${pencariKost.pencariKost_id}</th>
+                        <td>${pencariKost.pencariKost_id}</td>
                         <td>${pencariKost.user.username}</td>
                         <td>${pencariKost.user.email}</td>
                         <td>${pencariKost.user.password}</td>
@@ -83,8 +71,6 @@
                 </c:forEach>
             </tbody>
         </table>
-    </section>
-    <!-- section pencari kost end -->
-    
+    </div>
 </body>
 </html>

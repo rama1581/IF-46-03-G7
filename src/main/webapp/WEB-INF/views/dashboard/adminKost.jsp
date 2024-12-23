@@ -5,78 +5,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>approval kost</title>
-    <link rel="stylesheet" href="/css/approvalkost.css"/>
+    <title>Daftar Kost</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/approvalkost.css">
 </head>
 <body>
-    
-    <!-- section navbar start -->
-    <section>
-        <div class="sidebar">
-            <div class="image">
-                <img src="/aset/Logo copy.png" alt="">
-            </div>
-            <ul class="nav">
-                <li>
-                    <a href="${pageContext.request.contextPath}/dashboard/kost" style="color: black; text-decoration: none;">
-                        <img src="/aset/pemilik.png" alt="approvalkos" style="vertical-align: middle; margin-right: 10px;">
-                        <span>Kost</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="${pageContext.request.contextPath}/dashboard/booking" style="color: black; text-decoration: none; margin-left: 7px;">
-                        <img src="/aset/pembayaran.png" alt="payment" style="vertical-align: middle; margin-right: 14px;">
-                        <span>Booking</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="${pageContext.request.contextPath}/dashboard/pencariKost" style="color: black; text-decoration: none;">
-                        <img src="/aset/pencari.png" alt="pencarikos" style="vertical-align: middle; margin-right: 14px;">
-                        <span>Pencari Kost</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="${pageContext.request.contextPath}/logout" style="color: black; text-decoration: none;">
-                        <img src="/aset/out.png" alt="pencarikos" style="vertical-align: middle; margin-right: 24px;">
-                        <span>Logout</span>
-                    </a>
-                </li>
-            </ul>
-    </section>
-    <!-- section navbar end -->
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="image">
+            <img src="/aset/Logo copy.png" alt="Logo">
+        </div>
+        <ul>
+            <li>
+                <a href="${pageContext.request.contextPath}/dashboard/kost">
+                    <img src="/aset/pemilik.png" alt="Icon"> Kost
+                </a>
+            </li>
+            <li>
+                <a href="${pageContext.request.contextPath}/dashboard/booking">
+                    <img src="/aset/pembayaran.png" alt="Icon"> Booking
+                </a>
+            </li>
+            <li>
+                <a href="${pageContext.request.contextPath}/dashboard/pencariKost">
+                    <img src="/aset/pencari.png" alt="Icon"> Pencari Kost
+                </a>
+            </li>
+            <li>
+                <a href="${pageContext.request.contextPath}/logout">
+                    <img src="/aset/out.png" alt="Icon"> Logout
+                </a>
+            </li>
+        </ul>
+    </div>
 
-    <!-- section approval pemilik kost start -->
-    <section>
-        <div class="container my-3"> 
-            <div class="text" style="font-size: 20px; margin-left: 280px;">
-                <h1>Daftar Kost</h1>
-            </div>
+    <!-- Content -->
+    <div class="content">
+        <h1>Daftar Kost</h1>
+        <div class="search-box">
             <form>
-                <div class="search">
-                    <!-- <span class="search-icon material-symbols-outlined">search</span> -->
-                    <input class="search-input" type="search" placeholder="Search Kost">
-                    <button type="submit" class="search-button">Go</button>
-                </div>
+                <input type="text" placeholder="Search Kost">
+                <button type="submit">Go</button>
             </form>
         </div>
 
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nama Kost</th>
-                        <th scope="col">Pemilik</th>
-                        <th scope="col">Kategori</th>
-                        <th scope="col">No HP</th>
-                        <th scope="col">Approved</th>
-                    </tr>
-                </thead>
-                <tbody>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nama Kost</th>
+                    <th>Pemilik</th>
+                    <th>Kategori</th>
+                    <th>No HP</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
                 <c:forEach var="kost" items="${kosts}">
                     <tr>
-                        <th scope="row">${kost.kost_id}</th>
+                        <td>${kost.kost_id}</td>
                         <td>${kost.name}</td>
                         <td>${kost.pemilikKost.user.username}</td>
                         <td>
@@ -84,37 +71,34 @@
                                 <c:when test="${kost.allowedMale}">
                                     <c:choose>
                                         <c:when test="${kost.allowedFemale}">
-                                            <p>Putra & Putri</p>
+                                            Putra & Putri
                                         </c:when>
                                         <c:otherwise>
-                                            <p>Putra</p>
+                                            Putra
                                         </c:otherwise>
                                     </c:choose>
                                 </c:when>
                                 <c:otherwise>
-                                    <p>Putri</p>
+                                    Putri
                                 </c:otherwise>
                             </c:choose>
                         </td>
                         <td>${kost.pemilikKost.user.phoneNumber}</td>
                         <td>
                             <form action="/dashboard/kost/${kost.kost_id}" method="post">
-
-                                <select class="custom-select" name="approved">
-                                    <option value="true"  <c:if test="${kost.approved}">selected</c:if> >Yes</option>
-                                    <option value="false" <c:if test="${!kost.approved}">selected</c:if> >No</option>
+                                <select name="approved">
+                                    <option value="true"  <c:if test="${kost.approved}">selected</c:if>>Disetujui</option>
+                                    <option value="false" <c:if test="${!kost.approved}">selected</c:if>>Ditolak</option>
                                 </select>
-
-                                <button type="submit" class="save-changes-button" onclick="saveChanges()" style="background-color: #00BBB4; color: #ffffff; font-family: 'Poppins', sans-serif; border-radius: 10px; border-color: #00BBB4;">
-                                    Simpan perubahan
-                                </button>
+                                <button type="submit" class="save-changes-button" onclick="saveChanges()">Simpan</button>
                             </form>
                         </td>
                     </tr>
                 </c:forEach>
-            </table>
-    </section>
-            
+            </tbody>
+        </table>
+    </div>
+
     <script>
         function saveChanges() {
             var form = document.getElementById('approvalForm');
