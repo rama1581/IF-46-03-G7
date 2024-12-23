@@ -1,291 +1,386 @@
-*{
-    margin: 0;
-    padding:0;
-    font-family: 'Poppins';
+:root {
+  --color-primary: #0073ff;
+  --color-white: #e9e9e9;
+  --color-black: #141d28;
+  --color-black-1: #212b38;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.home{
+  font-family: sans-serif;
+  font-weight: bold;
+  background-image: url(../aset/Body.png);
+  background-size: 100% auto;
+}
+
+body.Login{
+  font-family: sans-serif;
+  font-weight: bold;
+  background-image: url(../aset/bglogin.jpg);
+  background-size: 100% auto;
+}
+
+body.Regist{
+  font-family: sans-serif;
+  font-weight: bold;
+  background-image: url(../aset/bglogin.jpg);
+  background-size: 100% auto;
+}
+
+body.Search{
+  font-family: sans-serif;
+  font-weight: bold;
+  background-image: url(../aset/bglogin.jpg);
+  background-size: 100% auto;
+}
+
+body.Booking{
+  font-family: sans-serif;
+  font-weight: bold;
+  background-image: url(../aset/bg2.jpg);
+  background-size: 100% auto;
+}
+
+/* navbar */
+.fas {
+  float: right;
+  margin-left: 10px;
+  padding-top: 3px;
+  
+}
+
+.navbar {
+  padding-top: 10px !important; /* Mengatur jarak atas navbar */
+  padding-bottom: 10px !important; /* Mengatur jarak bawah navbar */
+  padding-left: 47px !important;
+  padding-right: 30px !important;
+  opacity: 90%;
+  z-index: 1000;
+  width: 100%; /* Membuat navbar mengambil seluruh lebar */
+  
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center; /* Menjaga item navbar tetap sejajar secara vertikal */
+  gap: 20px;
+}
+
+/* dropdown menu style */
+.dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu ul li a {
+  font-size: 15.5px;
+  margin-top: 5px;
+}
+
+.menu-bar ul li:hover .dropdown-menu {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: var(--color-black);
 }
 
 
-.carousel-indicators button{
-    border-radius: 20%;
+.menu-bar ul li:hover .dropdown-menu ul {
+  display: block;
+  margin: 10px;
 }
 
-.carousel-indicators button.active {
-    background-color: #00BBB4;
+.menu-bar ul li:hover .dropdown-menu ul li {
+  width: 150px;
+  padding: 10px;
 }
 
-.carousel-item h1{
-    font-family: "Poppins-Bold", sans-serif;
-    text-shadow: 1px 1px 1px #000;
-    font-weight: 700;
-    color: #ffffff;
-    font-size: 50px;
-    text-align: center;
-    letter-spacing: 0;
-    line-height: normal;
+/* dropdown kedua */
+.dropdown-menu1 {
+  display: none;
 }
 
-.search-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    margin-top: 20px; 
+.dropdown-menu1 ul li a {
+  font-size: 15.5px;
 }
 
-.search-input-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 652px;
-    height: 56px;
-    border: none;
-    outline: none;
-    border-radius: 90px;
-    background-color: #ffffff;
-    padding: 10px 15px;
-}
-
-.search-input {
-    flex: 1;
-    border: none;
-    outline: none;
-    font-size: 16px; 
-    font-family: "Poppins-Regular", Helvetica;
-    background-color: transparent;
-    padding: 10px;
-}
-
-.search-button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    padding: 10px;
-}
-
-.fas fa-search {
-    color: #333;
-    font-size: 18px;
+.menu-bar ul li:hover .dropdown-menu1 {
+  display: block;
+  position: absolute;
+  right: 0px;
+  top: 100%;
+  background-color: var(--color-black);
 }
 
 
-.cont_nav {
-    background-color: #1c1c1c; /* Warna latar belakang gelap */
-    padding: 10px 30px;
+.menu-bar ul li:hover .dropdown-menu1 ul {
+  display: block;
+  margin: 10px;
 }
 
-.content_nav button{
-    border-radius: 8px;
-    background: #00BBB4;
-    display: flex;
-    width: 182.237px;
-    height: 48px;
-    padding: 8px 16.237px 10px 16px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    text-align: center;
-    color: white;
-    border: none;
-    font-family: Poppins;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: -0.33px;
+.menu-bar ul li:hover .dropdown-menu1 ul li {
+  width: 150px;
+  padding: 10px;
 }
 
-.content_nav a{
-    flex-shrink: 0;
-    color: #9D9D9D;
-    text-align: center;
-    font-family: Poppins;
-    font-size: 25px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+
+.hero {
+  height: calc(100vh - 80px);
+  background-image: url(./bg.jpg);
+  background-position: center;
+}
+/* bagian search */
+/* .hero {
+  position: relative;
+  height: 80vh;
+  background: url("kost-bedroom.jpg") no-repeat center center/cover;
+} */
+
+/* Mengatur tinggi hero section */
+.hero {
+  background-position: center;
+  height: 80vh;
+  color: white;
 }
 
-.input-search{
-    position: absolute;
-    width: 652px;
-    height: 56px;
-    flex-shrink: 0;
-    margin-right: 50px;
-    border-radius: 90px;
-    background: #FFFDFD;
+/* Menyesuaikan ukuran judul dan deskripsi */
+.hero h1 {
+  font-size: 3rem; /* Menyesuaikan ukuran dengan bootstrap */
+  margin-bottom: 1rem;
+  font-weight: bold;
 }
 
-.footer_cont{
-    height: 300px;
-    background: #00BBB4;
+.hero p {
+  font-size: 1.25rem; /* Menggunakan ukuran font standar Bootstrap */
+  margin-bottom: 2rem;
 }
 
-.description p{
-    color: #FFF;
-    font-family: Poppins;
-    font-size: 17px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.hero .btn {
+  background-color: #b58b61; /* Warna custom */
+  color: #fff; /* Warna teks */
+  border: none; /* Menghilangkan border */
+  border-radius: 0.375rem; /* Sudut membulat */
+  padding: 0.75rem 1.25rem; /* Spasi dalam tombol */
+  font-size: 1rem; /* Ukuran teks */
+  transition: background-color 0.3s ease; /* Animasi saat hover */
 }
 
-.contact{
-    color: #FFF;
-    font-family: Poppins;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    text-decoration-line: underline;
+.hero .btn:hover {
+  background-color: #9c7052; /* Warna tombol saat hover */
+  color: #fff; /* Warna teks tetap putih */
 }
 
-.email a{
-    color: #FFF;
-    font-family: Poppins;
-    font-size: 17px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+/* Customizing Search Button */
+.search-bar .form-control {
+  border-radius: 0.375rem; /* Menggunakan border radius standar dari Bootstrap */
 }
 
-.telpon a{
-    color: #FFF;
-    font-family: Poppins;
-    font-size: 17px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.search-bar .btn {
+  background-color: #b58b61; /* Menggunakan warna yang disesuaikan */
+  color: white;
+  border-radius: 0.375rem;
+  padding: 0.75rem 1.25rem;
 }
 
-.desc_kost button{
-    width: 214px;
-    height: 46px;
-    flex-shrink: 0;
-    border-radius: 13px;
-    background: #FFF;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    color: #000;
-    font-family: Poppins;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+/* login */
+.login-container {
+  margin-top: 50px; /* Memberikan jarak dari atas */
 }
 
-.desc_kost p{
-    color: #000;
-    font-family: Poppins;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.login-form {
+  background-color: black;
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  margin-top: 110px;
 }
 
-.text h1{
-    margin-left: 300px;
-    color: #00BBB4;
-    font-family: Poppins;
-    font-size: 45px;
-    font-style: normal;
-    font-weight: bolder;
-    line-height: normal;
+.login-image {
+  object-fit: cover;
+  width: 90%; 
+  max-height: 90%; 
+  margin-top: 20px;
 }
 
-.logo {
-    margin-right: 1470px;
-    width: 178px;
-    height: 54px;
+@media (max-width: 768px) {
+  .login-container {
+      margin-top: 20px; /* Adjust for smaller screens */
+  }
 }
 
-.logo img {
-    width: auto; /* Menyesuaikan lebar sesuai rasio gambar asli */
-    height: auto; /* Menyesuaikan tinggi sesuai rasio gambar asli */
-    object-fit: contain; /* Pastikan logo tidak terpotong */
-    border-radius: 0; /* Menghapus efek melingkar/oval */
-    display: flex;
-    align-items: center;
-    padding: 6px; /* Menambahkan ruang di sekitar logo */
-    background-color: transparent; /* Pastikan latar belakangnya transparan */
+/* register */
+body.Regist .login-form{
+  margin-top: 20px !important; /* Kurangi jarak dari atas */
 }
 
-.tipe-kost-btn {
-    background-color: #f8f8f8; /* Warna latar tombol dropdown */
-    color: #1c1c1c; /* Warna teks dropdown */
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    padding: 5px 15px;
-    transition: background-color 0.3s ease;
+/* footer */
+.footer {
+  background-color: #1c1c1c;
+  color: #fff;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  height: 400px;
+  
 }
 
-.tipe-kost-btn:hover {
-    background-color: #e0e0e0;
+.social-media{
+  margin-left: 10px;
+  margin-top: 40px;
 }
 
-.registrasi-btn, .masuk-btn {
-    background-color: #fff; /* Warna putih */
-    color: #1c1c1c; /* Warna teks hitam */
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-    padding: 5px 15px;
-    margin-left: 5px;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+.social-media a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 15px;
+  text-decoration: none;
 }
 
-.registrasi-btn:hover, .masuk-btn:hover {
-    background-color: #e0e0e0;
-    border-color: #bbb;
+.contact ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  margin-left: 20px;
 }
 
-.modal-title h5 {
-    font-family: 'Poppins', sans-serif;
+.contact ul li {
+  margin: 35px 0;
 }
 
-.content_nav notif-icon {
-    cursor: pointer;
-    margin-right: 50px;
-    line-height: 60px;
+.contact ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: normal;
 }
 
-.content_nav notif-box {
-    width: 500px;
-    height: 0px;
-    opacity: 0;
-    position: absolute;
-    top: 35px;
-    right: 35px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.contact ul li a:hover {
+  text-decoration: underline;
 }
 
-.content_nav h1 {
-    font-family: 'Poppins';
-    font-size: 1px;
-    font-weight: bolder;
-    margin-top: 10px;
+.language-country {
+  position: absolute;
+  top: 10px; /* Jarak dari atas footer */
+  right: 10px; /* Jarak dari kanan footer */
+  display: flex;
+  gap: 20px; /* Jarak antara language dan country */
+  justify-content: flex-end;
 }
 
-.content_nav notif-item {
-    display: flex;
-    border-bottom: 1px solid #eee;
-    padding: 15px 5px;
-    margin-bottom: 15px;
-    cursor: pointer;
+.language-country select {
+  width: 150px; /* Ukuran dropdown */
+  color: #000;
 }
 
-.content_nav img {
-    display: block;
-    width: 20px;
-    margin-right: 10px;
-    border-radius: 50%;
+/* Menambahkan gaya untuk memastikan modal benar-benar terpusat */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.7); /* Latar belakang gelap di luar modal */
 }
 
-.content_nav h2 {
-    color: black;
-    font-size: 7px;
-    margin-top: 10px;
+.modal-dialog {
+  max-width: 500px; /* Anda dapat mengatur lebar maksimal dari modal */
+  margin: auto; /* Menjaga agar modal berada di tengah secara vertikal dan horizontal */
 }
 
-.content_nav p {
-    color: #000;
-    font-size: 5px;
+/* Mengubah warna tombol Daftar sebagai Pencari Kost */
+.daftar-pencari {
+  background-color: #846C5B !important;  /* Warna tombol pencari kost */
+  color: white !important;               /* Warna teks putih */
+  border: none !important;               /* Menghilangkan border */
 }
+
+/* Mengubah warna tombol Daftar sebagai Pemilik Kost */
+.daftar-pemilik {
+  background-color: #CEA07E !important;  /* Warna tombol pemilik kost */
+  color: white !important;               /* Warna teks putih */
+  border: none !important;               /* Menghilangkan border */
+}
+
+/* Mengubah warna tombol "Daftar Disini" */
+.btn-daftar-disini {
+  color: #846C5B;              /* Warna teks tombol */
+  background-color: #EDD9A3;   /* Warna latar belakang tombol */
+  border: none;                /* Menghilangkan border */
+  padding: 8px 15px;           /* Menambah padding untuk tombol */
+  text-decoration: none;       /* Menghilangkan garis bawah jika ada */
+  font-weight: bold;           /* Membuat teks menjadi tebal */
+  border-radius: 5px;          /* Menambahkan sudut melengkung pada tombol */
+  display: inline-block;       /* Mengubah tombol menjadi inline-block */
+}
+
+/* Menambahkan efek hover */
+.btn-daftar-disini:hover {
+  background-color: #d0c58e;   /* Warna latar belakang sedikit lebih gelap saat hover */
+  color: #846C5B;               /* Teks tetap dalam warna yang sama */
+  text-decoration: none;        /* Menghilangkan garis bawah saat hover */
+}
+
+/* Tombol SUBMIT yang memiliki warna latar belakang 846C5B */
+button.submit-btn {
+  background-color: #846C5B !important; /* Menetapkan warna latar belakang */
+  color: white !important; /* Menetapkan warna teks */
+  border: none; /* Menghilangkan border default */
+  font-weight: bold; /* Membuat teks menjadi tebal */
+}
+
+/* Efek hover pada tombol SUBMIT */
+button.submit-btn:hover {
+  background-color: #6f4f3e !important; /* Warna lebih gelap saat hover */
+}
+
+.bot-response.loading {
+  font-style: italic;
+  color: gray;
+}
+
+#chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+@media (max-width: 576px) {
+  #chatbot-container {
+      width: 90%; /* Lebih kecil untuk layar kecil */
+      right: 5%; /* Centered */
+      height: 350px;
+  }
+
+
+}
+
+.card {
+  margin-top: 100px; /* Memberikan jarak ke bawah */
+}
+.card-img-top {
+  height: 500px; /* Menyeragamkan tinggi gambar */
+  object-fit: cover; /* Menjaga proporsi gambar */
+}
+
+h1 {
+  margin-top: 50px; /* Jarak antara header dan tulisan */
+  text-align: center; /* (Opsional) Menyesuaikan teks menjadi rata tengah */
+  font-weight: bold; /* (Opsional) Membuat teks lebih tebal */
+}
+
+h1.page-title {
+  margin-top: 100px;
+  text-align: center;
+}
+
