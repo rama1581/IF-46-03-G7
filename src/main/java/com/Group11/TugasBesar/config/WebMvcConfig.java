@@ -2,6 +2,7 @@ package com.Group11.TugasBesar.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -35,10 +36,27 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        // Add both interceptors and define the path patterns they should apply to
+        // Menambahkan interceptor untuk memeriksa status login
         registry.addInterceptor(checkLoggedInInterceptor()).addPathPatterns("/**");
-        registry.addInterceptor(checkPemilikKostInterceptor()).addPathPatterns("/**");
-        registry.addInterceptor(checkPencariKostInterceptor()).addPathPatterns("/**");
-        registry.addInterceptor(checkAdminInterceptor()).addPathPatterns("/**");
+        
+        // Menambahkan interceptor berdasarkan peran pengguna
+        registry.addInterceptor(checkPemilikKostInterceptor()).addPathPatterns("/pemilik/**");
+        registry.addInterceptor(checkPencariKostInterceptor()).addPathPatterns("/pencari/**");
+        registry.addInterceptor(checkAdminInterceptor()).addPathPatterns("/admin/**");
+
+        // Cek halaman yang hanya bisa diakses oleh pengguna yang terautentikasi
+        registry.addInterceptor(checkLoggedInInterceptor())
+                .addPathPatterns("/editprofile", "/profile", "/booking/**"); // Ganti dengan path yang sesuai
     }
+
+    // Kelas AppConfig dipindahkan ke luar WebMvcConfig untuk menghindari masalah struktur
+    @Configuration
+    public static class AppConfig {
+        @Bean
+        public RestTemplate restTemplate() {
+            return new RestTemplate();
+        }
+    }
+
+    
 }
