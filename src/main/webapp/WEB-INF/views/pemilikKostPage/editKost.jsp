@@ -2,60 +2,84 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
-<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>edit kos</title>
-    <link rel="stylesheet" href="/css/roomCreate.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Edit Kost</title>
+    <link rel="stylesheet" href="/css/datakos.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <!-- sidebar section start -->
-    <section>
-        <div class="sidebar">
-            <div class="image">
-                <img src="/aset/Logo copy.png" alt="">
-            </div>
-            <ul class="nav">
-                <span style="font-weight: bold;">
-                    Edit data kost
-                </span><br><br>
-            </ul>
+<section>
+    <div class="sidebar" style="background-color: #070606; color: white;">
+        <div class="image">
+            <img src="/aset/Logo copy.png" alt="" style="width: 160px; height: auto;">
         </div>
-    </section>
-    <!-- sidebar section end -->
+        <ul class="nav">
+            <span style="font-weight: bold;">Edit Data Kost</span><br><br>
+        </ul>
+    </div>
 
-    <!-- form room section start -->
-    <section>
-        <form action="${pageContext.request.contextPath}" method="post" contentType="application/json">
-            <div class="main">
-                <span style="font-size: 40px; font-weight: bolder; margin-left: 285px; margin-top: 25px;">
-                    Silakan ubah dan lengkapi data kost
-                </span>
-                <h2>Lengkapi data kots agar penyewa lebih mengetahui spesifikasi kost yang Anda sewakan</h2><br>
-        
-                <span style="font-size: x-large; font-weight: bolder; margin-left: 285px; margin-top: 25px;">
-                    Harga
-                </span>
-                <h2>Masukan harga /bulan</h2>
-                <div class="form mb-3 my-1">
-                    <input class="form-control" style="height: 50px; width: 300px" type="text" id="name" name="price" required>
-                </div><br>
+<section>
+    <!-- Feedback Message -->
+    <c:if test="${not empty successMessage}">
+        <div class="alert alert-success">${successMessage}</div>
+    </c:if>
+    <c:if test="${not empty errorMessage}">
+        <div class="alert alert-danger">${errorMessage}</div>
+    </c:if>
 
-                <span style="font-size: x-large; font-weight: bolder; margin-top: 30px; margin-left: 285px;">
-                    Deskripsi
-                </span>
-                <h2>Saran: Tulis lengkap seluruh fasilitas yang tersedia</h2>
-                <div class="form mb-3 my-1">
-                    <textarea class="form-control mb-3 mx-1" style="height: 400px; width: 700px; margin-left: 300px;" id="address" name="address" required></textarea><br>
-                </div><br>
+    <!-- Form untuk pengeditan data kost -->
+    <form action="${pageContext.request.contextPath}/edit/kost/${kost.kost_id}" method="post">
+        <div class="main">
+            <span style="font-size: x-large; font-weight: bolder; margin-left: 285px; margin-top: 25px;">
+                Silakan lengkapi data Kost
+            </span>
+            <h2>Lengkapi data Kost agar penyewa lebih mengetahui spesifikasi kost yang Anda sewakan</h2><br>
 
-                <button type="submit" class="btn btn-link no-border" style="margin-left: 1300px; background-color: #00BBB4;">Lanjutkan</button>
+            <!-- Nama Kost -->
+            <label for="name" style="font-size: x-large; font-weight: bolder; margin-left: 285px; margin-top: 25px;">
+                Nama Kost
+            </label>
+            <h2>Saran: Kost (spasi) nama kost</h2>
+            <div class="form mb-3 my-1">
+                <input class="form-control" type="text" id="name" name="name" value="${kost.name}" placeholder="Masukkan nama kost" required>
+            </div><br>
+
+            <!-- Tipe Kost -->
+            <h1>Disewakan untuk putra/putri/campur</h1>
+            <h2>Pilih tipe kost yang sesuai</h2>
+            <div class="form-check form-check-inline">
+                <input type="checkbox" id="allowedMale" name="allowedMale" <c:if test="${kost.allowedMale}">checked</c:if>>
+                <label for="allowedMale">Putra</label>
             </div>
-        </form>
-    <!-- form room section end -->
+            <div class="form-check form-check-inline">
+                <input type="checkbox" id="allowedFemale" name="allowedFemale" <c:if test="${kost.allowedFemale}">checked</c:if>>
+                <label for="allowedFemale">Putri</label>
+            </div>
+
+            <!-- Harga Kost -->
+            <label for="price" style="font-size: x-large; font-weight: bolder; margin-left: 285px; margin-top: 25px;">
+                Harga Kost (per bulan)
+            </label>
+            <h2>Masukkan harga kost (contoh: 500000 untuk Rp500.000)</h2>
+            <div class="form mb-3 my-1">
+                <input class="form-control" type="number" id="price" name="price" value="${kost.price}" placeholder="Contoh: 500000" required>
+            </div><br>
+
+            <!-- Alamat Kost -->
+            <label for="address" style="font-size: x-large; font-weight: bolder; margin-left: 285px; margin-top: 25px;">
+                Alamat Kost
+            </label>
+            <h2>Saran: Tulis lengkap mulai dari nama jalan, RT/RW, Kecamatan, Kabupaten, Provinsi</h2>
+            <textarea class="form-control mb-3 mx-1" style="height: 100px; width: 450px; margin-left: 295px;" id="address" name="address" placeholder="Masukkan alamat lengkap" required>${kost.address}</textarea><br>
+
+            <!-- Tombol Submit -->
+            <div style="margin-left: 295px;">
+                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+            </div>
+        </div>
+    </form>
+</section>
 </body>
 </html>
