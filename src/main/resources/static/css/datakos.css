@@ -71,3 +71,19 @@ body {
     cursor: pointer;
     text-align: right;
 }
+
+.btn {
+    margin-left: 1300px;
+    background-color: red; /* Warna tombol saat tidak disentuh */
+    color: white;
+    text-decoration: none;
+    border: none;
+    outline: 2px solid black; /* Outline hitam */
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #9c7052; /* Warna tombol saat disentuh */
+    color:white;
+}
