@@ -191,5 +191,6 @@
 
     <!-- Bootstrap 5 Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <jsp:include page="/WEB-INF/views/chat.jsp" />
 </body>
 </html>
