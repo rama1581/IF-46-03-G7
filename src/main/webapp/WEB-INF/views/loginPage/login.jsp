@@ -74,6 +74,14 @@
             <div class="col-md-6 d-none d-md-block">
                 <img src="../aset/fotokoslogin.png" alt="Login Illustration" class="login-image img-fluid rounded">
             </div>
+
+            <c:if test="${isUserNonexistent}">
+                <div class="alert alert-danger text-center" role="alert">
+                    Email atau password tidak terdaftar!
+                </div>
+            </c:if>
+
+
             <!-- Form Login -->
             <div class="col-md-6">
                 <form action="#" method="POST" class="login-form">
@@ -162,5 +170,6 @@
 
     <!-- Bootstrap 5 Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <jsp:include page="/WEB-INF/views/chat.jsp" />
 </body>
 </html>
