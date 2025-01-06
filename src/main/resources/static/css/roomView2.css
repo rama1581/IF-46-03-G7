@@ -78,13 +78,7 @@
     padding: 24px 0;
 }
 
-.container {
-    position: relative;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 12px 0 rgba(11, 17, 52, .15);
-    display: flex;
-}
+
 
 .room_content {
     width: 100%;
