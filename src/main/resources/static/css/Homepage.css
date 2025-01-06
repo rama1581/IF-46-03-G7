@@ -11,38 +11,37 @@
   box-sizing: border-box;
 }
 
-body.home{
+body.home {
   font-family: sans-serif;
   font-weight: bold;
   background-image: url(../aset/Body.png);
   background-size: 100% auto;
 }
 
-body.Login{
+body.Login {
   font-family: sans-serif;
   font-weight: bold;
   background-image: url(../aset/bglogin.jpg);
   background-size: 100% auto;
 }
 
-body.Regist{
+body.Regist {
   font-family: sans-serif;
   font-weight: bold;
   background-image: url(../aset/bglogin.jpg);
   background-size: 100% auto;
 }
 
-body.Search{
+body.Search {
   font-family: sans-serif;
   font-weight: bold;
   background-image: url(../aset/bglogin.jpg);
   background-size: 100% auto;
 }
 
-body.Booking{
+body.Booking {
   font-family: sans-serif;
   font-weight: bold;
-  background-image: url(../aset/bg2.jpg);
   background-size: 100% auto;
 }
 
@@ -51,7 +50,6 @@ body.Booking{
   float: right;
   margin-left: 10px;
   padding-top: 3px;
-  
 }
 
 .navbar {
@@ -62,7 +60,6 @@ body.Booking{
   opacity: 90%;
   z-index: 1000;
   width: 100%; /* Membuat navbar mengambil seluruh lebar */
-  
 }
 
 .navbar-nav {
@@ -88,7 +85,6 @@ body.Booking{
   top: 100%;
   background-color: var(--color-black);
 }
-
 
 .menu-bar ul li:hover .dropdown-menu ul {
   display: block;
@@ -117,7 +113,6 @@ body.Booking{
   background-color: var(--color-black);
 }
 
-
 .menu-bar ul li:hover .dropdown-menu1 ul {
   display: block;
   margin: 10px;
@@ -127,7 +122,6 @@ body.Booking{
   width: 150px;
   padding: 10px;
 }
-
 
 .hero {
   height: calc(100vh - 80px);
@@ -146,6 +140,8 @@ body.Booking{
   background-position: center;
   height: 80vh;
   color: white;
+  text-align: center; /* Memastikan semua elemen di dalam hero rata tengah */
+  padding-top: 50px; /* Menambahkan jarak dari atas */
 }
 
 /* Menyesuaikan ukuran judul dan deskripsi */
@@ -203,19 +199,19 @@ body.Booking{
 
 .login-image {
   object-fit: cover;
-  width: 90%; 
-  max-height: 90%; 
+  width: 90%;
+  max-height: 90%;
   margin-top: 20px;
 }
 
 @media (max-width: 768px) {
   .login-container {
-      margin-top: 20px; /* Adjust for smaller screens */
+    margin-top: 20px; /* Adjust for smaller screens */
   }
 }
 
 /* register */
-body.Regist .login-form{
+body.Regist .login-form {
   margin-top: 20px !important; /* Kurangi jarak dari atas */
 }
 
@@ -230,10 +226,9 @@ body.Regist .login-form{
   font-family: Arial, sans-serif;
   width: 100%;
   height: 400px;
-  
 }
 
-.social-media{
+.social-media {
   margin-left: 10px;
   margin-top: 40px;
 }
@@ -293,40 +288,40 @@ body.Regist .login-form{
 
 /* Mengubah warna tombol Daftar sebagai Pencari Kost */
 .daftar-pencari {
-  background-color: #846C5B !important;  /* Warna tombol pencari kost */
-  color: white !important;               /* Warna teks putih */
-  border: none !important;               /* Menghilangkan border */
+  background-color: #846c5b !important; /* Warna tombol pencari kost */
+  color: white !important; /* Warna teks putih */
+  border: none !important; /* Menghilangkan border */
 }
 
 /* Mengubah warna tombol Daftar sebagai Pemilik Kost */
 .daftar-pemilik {
-  background-color: #CEA07E !important;  /* Warna tombol pemilik kost */
-  color: white !important;               /* Warna teks putih */
-  border: none !important;               /* Menghilangkan border */
+  background-color: #cea07e !important; /* Warna tombol pemilik kost */
+  color: white !important; /* Warna teks putih */
+  border: none !important; /* Menghilangkan border */
 }
 
 /* Mengubah warna tombol "Daftar Disini" */
 .btn-daftar-disini {
-  color: #846C5B;              /* Warna teks tombol */
-  background-color: #EDD9A3;   /* Warna latar belakang tombol */
-  border: none;                /* Menghilangkan border */
-  padding: 8px 15px;           /* Menambah padding untuk tombol */
-  text-decoration: none;       /* Menghilangkan garis bawah jika ada */
-  font-weight: bold;           /* Membuat teks menjadi tebal */
-  border-radius: 5px;          /* Menambahkan sudut melengkung pada tombol */
-  display: inline-block;       /* Mengubah tombol menjadi inline-block */
+  color: #846c5b; /* Warna teks tombol */
+  background-color: #edd9a3; /* Warna latar belakang tombol */
+  border: none; /* Menghilangkan border */
+  padding: 8px 15px; /* Menambah padding untuk tombol */
+  text-decoration: none; /* Menghilangkan garis bawah jika ada */
+  font-weight: bold; /* Membuat teks menjadi tebal */
+  border-radius: 5px; /* Menambahkan sudut melengkung pada tombol */
+  display: inline-block; /* Mengubah tombol menjadi inline-block */
 }
 
 /* Menambahkan efek hover */
 .btn-daftar-disini:hover {
-  background-color: #d0c58e;   /* Warna latar belakang sedikit lebih gelap saat hover */
-  color: #846C5B;               /* Teks tetap dalam warna yang sama */
-  text-decoration: none;        /* Menghilangkan garis bawah saat hover */
+  background-color: #d0c58e; /* Warna latar belakang sedikit lebih gelap saat hover */
+  color: #846c5b; /* Teks tetap dalam warna yang sama */
+  text-decoration: none; /* Menghilangkan garis bawah saat hover */
 }
 
 /* Tombol SUBMIT yang memiliki warna latar belakang 846C5B */
 button.submit-btn {
-  background-color: #846C5B !important; /* Menetapkan warna latar belakang */
+  background-color: #846c5b !important; /* Menetapkan warna latar belakang */
   color: white !important; /* Menetapkan warna teks */
   border: none; /* Menghilangkan border default */
   font-weight: bold; /* Membuat teks menjadi tebal */
@@ -357,17 +352,22 @@ button.submit-btn:hover {
 
 @media (max-width: 576px) {
   #chatbot-container {
-      width: 90%; /* Lebih kecil untuk layar kecil */
-      right: 5%; /* Centered */
-      height: 350px;
+    width: 90%; /* Lebih kecil untuk layar kecil */
+    right: 5%; /* Centered */
+    height: 350px;
   }
-
-
 }
 
 .card {
   margin-top: 100px; /* Memberikan jarak ke bawah */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow tambahan */
+  transition: all 0.3s ease; /* Animasi saat hover */
 }
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Shadow saat hover */
+}
+
 .card-img-top {
   height: 500px; /* Menyeragamkan tinggi gambar */
   object-fit: cover; /* Menjaga proporsi gambar */
@@ -384,3 +384,123 @@ h1.page-title {
   text-align: center;
 }
 
+/* Edit Profile Container */
+.edit-profile-container {
+  width: 50%; /* Sesuaikan lebar */
+  margin: auto; /* Tengah secara horizontal */
+  margin-left: 10%; /* Pindahkan ke kiri */
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  color: white; /* Warna teks */
+}
+
+/* Form Labels */
+.edit-profile-container label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Form Inputs */
+.edit-profile-container input[type="text"],
+.edit-profile-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #e8e8e8;
+  color: black;
+  font-size: 16px;
+}
+
+/* Submit Button */
+.btn-submit {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: #8b6d5a; /* Warna tombol */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .edit-profile-container {
+    width: 90%;
+    margin-left: 5%;
+  }
+}
+
+.chatbot-submit {
+  height: 40px; /* Tinggi tombol sama dengan input */
+  padding: 0 20px; /* Spasi di dalam tombol */
+  background-color: #a67c52; /* Warna tombol */
+  color: #fff; /* Warna teks */
+  border: none; /* Hapus border */
+  border-radius: 8px; /* Sudut melengkung */
+  cursor: pointer;
+}
+
+.modal {
+  z-index: 1055 !important;
+}
+
+.modal-backdrop {
+  z-index: 1050 !important;
+  background-color: rgba(0, 0, 0, 0.5); /* Warna semi-transparan */
+}
+
+body.modal-open .modal {
+  z-index: 1055 !important;
+}
+
+body.modal-open .modal-backdrop {
+  z-index: 1050 !important;
+}
+
+#notificationIcon {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  z-index: 1000;
+}
+
+#notificationList {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  display: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 1000;
+  width: 300px;
+}
+#notificationList .dropdown-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+#notificationList .dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Hasil pencarian ke tengah */
+.results-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Memastikan semua elemen rata tengah */
+  justify-content: center; /* Memusatkan secara vertikal */
+  margin-top: 50px; /* Memberikan jarak dari atas */
+}
+
+/* Mengatur jarak antara card */
+.results-container .card {
+  margin-top: 20px; /* Kurangi jarak vertikal antar card */
+}
