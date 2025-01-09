@@ -17,8 +17,6 @@ import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.services.kost.KostService;
 import com.Group11.TugasBesar.services.room.RoomService;
 
-import jakarta.servlet.http.HttpSession;
-
 @SpringBootApplication
 @Controller
 public class KostController {
@@ -33,44 +31,41 @@ public class KostController {
     public String kostPage() {
         return "searchPage/kostOption";
     }
-
-    @GetMapping(value = "/kost/search")
+    
+    @GetMapping("/kost/search")
     public String searchKostPage(
-        @RequestParam(name = "q", required = false) String query,
-        @RequestParam(name = "allowedMale", required = false) boolean male,
-        @RequestParam(name = "allowedFemale", required = false) boolean female,
-        HttpSession httpSession, Model model) {
+    @RequestParam(name = "q", required = false) String query,
+    @RequestParam(name = "allowedMale", required = false) Boolean allowedMale,
+    @RequestParam(name = "allowedFemale", required = false) Boolean allowedFemale,
+    Model model) {
 
-        try {
-            Response response = kostService.getKostByApproved(true);
-            List<Kost> kosts = (List<Kost>) response.getData();
+    try {
+        // Debugging parameter input
+        System.out.println("Controller - Query: " + query);
+        System.out.println("Controller - AllowedMale: " + allowedMale);
+        System.out.println("Controller - AllowedFemale: " + allowedFemale);
 
-            if (male) {
-                if (female) {
-                } else {
-                    kosts = kosts.stream()
-                        .filter(Kost::isAllowedMale)
-                        .collect(Collectors.toList());
-                }
-            } else if (female) {
-                kosts = kosts.stream()
-                    .filter(Kost::isAllowedFemale)
-                    .collect(Collectors.toList());
-            } else {
-                kosts.clear();
-            }
-
-            // Passing all the kost to the JSP
+        // Jika tidak ada pencarian (query kosong dan tidak ada pilihan checkbox), tidak kirim kost ke view
+        if (query == null && allowedMale == null && allowedFemale == null) {
+            model.addAttribute("kosts", null);
+        } else {
+            // Panggil service untuk mencari kost
+            List<Kost> kosts = kostService.searchKost(query, allowedMale, allowedFemale);
             model.addAttribute("kosts", kosts);
-            model.addAttribute("allowedMale", male);
-            model.addAttribute("allowedFemale", female);
-
-            return "searchPage/kostSearch";
-        } catch (Exception e) {
-            model.addAttribute("message", e.getMessage());
-            return "unexpectedError";
         }
+
+        model.addAttribute("query", query);
+        model.addAttribute("allowedMale", allowedMale);
+        model.addAttribute("allowedFemale", allowedFemale);
+
+        return "searchPage/kostSearch"; // View JSP atau HTML
+    } catch (Exception e) {
+        model.addAttribute("message", e.getMessage());
+        System.err.println("Error: " + e.getMessage());
+        return "unexpectedError";
     }
+}
+
 
     @GetMapping("/kost/{uuid}")
     public String getKostById(@PathVariable("uuid") int id, Model model) {
@@ -88,5 +83,75 @@ public class KostController {
 
         return "searchPage/roomView";
     }
+
+//     @GetMapping("/type/{type}")
+//     public ResponseEntity<?> getKostByType(@PathVariable String type) {
+    
+//         List<Kost> kostList = KostService.getKostByType(type);
+//             if (kostList.isEmpty()) {
+//                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No kost found for type: " + type);
+//     }
+//         return ResponseEntity.ok(kostList);
+// }
+
+    @GetMapping("/putra")
+    public String showPutraPage(
+        @RequestParam(name = "q", required = false) String query,
+    @RequestParam(name = "allowedMale", required = false) Boolean allowedMale,
+    @RequestParam(name = "allowedFemale", required = false) Boolean allowedFemale,
+    Model model
+) {
+    // Ambil semua kost lalu filter berdasarkan tipe "Campur"
+    List<Kost> kosts = kostService.searchKost(query, allowedMale, allowedFemale)
+                                  .stream()
+                                  .filter(kost -> "Campur".equalsIgnoreCase(kost.getType()))
+                                  .collect(Collectors.toList());
+
+    model.addAttribute("kosts", kosts);
+    model.addAttribute("query", query);
+    model.addAttribute("allowedMale", allowedMale);
+    model.addAttribute("allowedFemale", allowedFemale);
+        return "listputra";
+    }
+
+    @GetMapping("/putri")
+    public String showPutriPage(
+    @RequestParam(name = "q", required = false) String query,
+    @RequestParam(name = "allowedMale", required = false) Boolean allowedMale,
+    @RequestParam(name = "allowedFemale", required = false) Boolean allowedFemale,
+    Model model
+) {
+    // Ambil semua kost lalu filter berdasarkan tipe "Campur"
+    List<Kost> kosts = kostService.searchKost(query, allowedMale, allowedFemale)
+                                  .stream()
+                                  .filter(kost -> "Campur".equalsIgnoreCase(kost.getType()))
+                                  .collect(Collectors.toList());
+
+    model.addAttribute("kosts", kosts);
+    model.addAttribute("query", query);
+    model.addAttribute("allowedMale", allowedMale);
+    model.addAttribute("allowedFemale", allowedFemale);
+        return "listputri";
+    }
+
+    @GetMapping("/campur")
+public String showCampurPage(
+    @RequestParam(name = "q", required = false) String query,
+    @RequestParam(name = "allowedMale", required = false) Boolean allowedMale,
+    @RequestParam(name = "allowedFemale", required = false) Boolean allowedFemale,
+    Model model
+) {
+    // Ambil semua kost lalu filter berdasarkan tipe "Campur"
+    List<Kost> kosts = kostService.searchKost(query, allowedMale, allowedFemale)
+                                  .stream()
+                                  .filter(kost -> "Campur".equalsIgnoreCase(kost.getType()))
+                                  .collect(Collectors.toList());
+
+    model.addAttribute("kosts", kosts);
+    model.addAttribute("query", query);
+    model.addAttribute("allowedMale", allowedMale);
+    model.addAttribute("allowedFemale", allowedFemale);
+    return "listCampur";
+}
 
 }
