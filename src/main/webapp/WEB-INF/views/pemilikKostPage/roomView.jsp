@@ -117,6 +117,7 @@
     <section class="list_kost py-5">
         <div class="container">
             <div class="text-center mb-4">
+                <br><br><br><br>
                 <h1>Halo, Selamat Datang</h1>
                 <h2>Waktunya Mengelola Kamar</h2>
             </div>
