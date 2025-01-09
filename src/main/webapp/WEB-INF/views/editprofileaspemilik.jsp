@@ -214,3 +214,4 @@
     <jsp:include page="/WEB-INF/views/chat.jsp" />
 </body>
 </html>
+
