@@ -1,9 +1,9 @@
 package com.Group11.TugasBesar.controllers;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Group11.TugasBesar.annotations.CheckPencariKost;
 import com.Group11.TugasBesar.models.Booking;
 import com.Group11.TugasBesar.models.Payment;
+import com.Group11.TugasBesar.models.PemilikKost;
 import com.Group11.TugasBesar.models.PencariKost;
 import com.Group11.TugasBesar.models.Room;
 import com.Group11.TugasBesar.payloads.requests.BookingRequest;
@@ -25,10 +29,6 @@ import com.Group11.TugasBesar.services.payment.PaymentService;
 import com.Group11.TugasBesar.services.room.RoomService;
 
 import jakarta.servlet.http.HttpSession;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @CheckPencariKost
 @SpringBootApplication
@@ -134,25 +134,47 @@ public class BookingController {
     }
 
     @GetMapping("/booking/{booking_id}/confirm")
-    public String bookConfirm(@PathVariable("booking_id") int booking_id, @RequestParam("method") String method) {
+    public String bookConfirm(@PathVariable("booking_id") int booking_id, 
+                          @RequestParam("method") String method, 
+                          Model model) {
 
-        Response response = bookingService.getBookingById(booking_id);
-        Booking booking = (Booking) response.getData();
+    Response response = bookingService.getBookingById(booking_id);
+    Booking booking = (Booking) response.getData();
 
-        paymentService.setPaymentMethod(booking.getPayment().getPayment_id(), method);
+    // Update metode pembayaran
+    paymentService.setPaymentMethod(booking.getPayment().getPayment_id(), method);
 
-        return "redirect:/booking/" + booking_id + "/qr";
+    // Cek metode pembayaran yang dipilih
+    if ("Transfer Bank".equalsIgnoreCase(method)) {
+        // Arahkan ke halaman pembayaran transfer bank
+        model.addAttribute("payment", booking.getPayment());
+        return "bookingPage/transferBankPayment"; // JSP untuk transfer bank
     }
 
-    @GetMapping("/booking/{booking_id}/qr")
-    public String bookQr(@PathVariable("booking_id") int booking_id, Model model) {
+    // Default: Arahkan ke halaman QRIS
+    return "redirect:/booking/" + booking_id + "/qr";
+}
 
-        Response response = bookingService.getBookingById(booking_id);
-        Booking booking = (Booking) response.getData();
 
-        paymentService.setPaymentStatus(booking.getPayment().getPayment_id(), "paid");
+   @GetMapping("/booking/{booking_id}/qr")
+    public String bookQr(@PathVariable("booking_id") int booking_id, Model model, HttpSession session) {
+    Response response = bookingService.getBookingById(booking_id);
+    Booking booking = (Booking) response.getData();
 
-        return "bookingPage/bookingQr";
+    if (booking == null) {
+        model.addAttribute("message", "Booking tidak ditemukan!");
+        return "unexpectedError";
     }
+
+    paymentService.setPaymentStatus(booking.getPayment().getPayment_id(), "paid");
+    paymentService.transferToPemilikKost(booking.getPayment());
+
+    PemilikKost pemilikKost = booking.getRoom().getKost().getPemilikKost();
+    session.setAttribute("loggedPemilikKost", pemilikKost);
+
+    model.addAttribute("message", "Pembayaran berhasil!");
+    return "bookingPage/bookingQr";
+}
+
 
 }
