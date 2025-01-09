@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Group11.TugasBesar.annotations.CheckPencariKost;
 import com.Group11.TugasBesar.models.Notification;
@@ -36,6 +35,8 @@ public class HomeController {
     public String homeLandingPage(HttpSession httpSession, Model model) {
 
         PencariKost pencariKost = (PencariKost) httpSession.getAttribute("LOGGED_USER");
+        int pencariKostId = pencariKost.getPencariKost_id();
+        model.addAttribute("pencariKostId", pencariKostId);
 
         Response response = notificationService.getNotificationByPencariKost(pencariKost);
         List<Notification> notifications = (List<Notification>) response.getData();
