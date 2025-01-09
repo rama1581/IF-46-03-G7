@@ -44,9 +44,12 @@ public class RoomController {
 
         Response roomResponse = roomService.getRoomById(room_id);
         Room room = (Room) roomResponse.getData();
+        
+        // Tambahkan URL gambar ke model
+        model.addAttribute("imageUrl", room.getKost().getImageUrl());
 
         // If room is not booked yet
-        if (room.isBooked() == false) {
+        if (!room.isBooked()) {
 
             try { // If the booking object were already exist
                 
@@ -84,12 +87,10 @@ public class RoomController {
             }
 
             
-        }
-        else {
+        } else {
             model.addAttribute("message", "room already booked");
             return "unexpectedError";
         }
 
     }
-    
 }
