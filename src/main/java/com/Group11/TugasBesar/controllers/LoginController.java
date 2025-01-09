@@ -5,9 +5,10 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -20,8 +21,6 @@ import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.services.user.UserService;
 
 import jakarta.servlet.http.HttpSession;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 @SpringBootApplication
@@ -85,7 +84,7 @@ public class LoginController {
                 }
             }
             else if (response.getStatus() == HttpStatus.UNAUTHORIZED.value()) {
-                    model.addAttribute("isPasswordIncorrect", true);
+                    model.addAttribute("errorMessage", "Email/Password Tidak Sesuai!");
                     return "loginPage/login";
                 }
             else {
@@ -103,4 +102,136 @@ public class LoginController {
         return "loginPage/loginAdmin";
     }
     
+    @GetMapping("/editprofileaspencari")
+    public String showEditProfilePage(HttpSession session, Model model) {
+        Object loggedInUser = session.getAttribute("LOGGED_USER");
+    
+        if (loggedInUser == null) {
+            return "redirect:/login"; // Redirect ke login jika tidak ada user di sesi
+        }
+    
+        if (loggedInUser instanceof PencariKost) {
+            PencariKost pencariKost = (PencariKost) loggedInUser;
+            model.addAttribute("user", pencariKost.getUser()); // Kirim User terkait ke JSP
+        } else if (loggedInUser instanceof PemilikKost) {
+            PemilikKost pemilikKost = (PemilikKost) loggedInUser;
+            model.addAttribute("user", pemilikKost.getUser()); // Kirim User terkait ke JSP
+        } else {
+            model.addAttribute("message", "Invalid user type.");
+            return "unexpectedError";
+        }
+    
+        return "editprofileaspencari";
+    }
+
+    @PostMapping("/editprofileaspencari")
+    public String updateProfile(User user, HttpSession session, Model model) {
+        try {
+            Object loggedInUser = session.getAttribute("LOGGED_USER");
+    
+            if (loggedInUser instanceof PencariKost) {
+                PencariKost pencariKost = (PencariKost) loggedInUser;
+                User existingUser = pencariKost.getUser();
+    
+                existingUser.setUsername(user.getUsername());
+                if (user.getPassword() != null && !user.getPassword().isEmpty()) {
+                    existingUser.setPassword(user.getPassword());
+                }
+    
+                Response response = userService.updateUser(existingUser);
+    
+                if (response.getStatus() == HttpStatus.OK.value()) {
+                    session.setAttribute("LOGGED_USER", pencariKost);
+                    model.addAttribute("successMessage", "Profile updated successfully.");
+                } else {
+                    model.addAttribute("errorMessage", response.getMessage());
+                }
+    
+            } else if (loggedInUser instanceof PemilikKost) {
+                PemilikKost pemilikKost = (PemilikKost) loggedInUser;
+                User existingUser = pemilikKost.getUser();
+    
+                existingUser.setUsername(user.getUsername());
+                if (user.getPassword() != null && !user.getPassword().isEmpty()) {
+                    existingUser.setPassword(user.getPassword());
+                }
+    
+                Response response = userService.updateUser(existingUser);
+    
+                if (response.getStatus() == HttpStatus.OK.value()) {
+                    session.setAttribute("LOGGED_USER", pemilikKost);
+                    model.addAttribute("successMessage", "Profile updated successfully.");
+                } else {
+                    model.addAttribute("errorMessage", response.getMessage());
+                }
+            }
+    
+            return "editprofileaspencari";
+        } catch (Exception e) {
+            e.printStackTrace();
+            model.addAttribute("errorMessage", "Error updating profile: " + e.getMessage());
+            return "editprofileaspencari";
+        }
+    }
+
+    @GetMapping("/editprofileaspemilik")
+    public String showEditProfilePemilikPage(HttpSession session, Model model) {
+    Object loggedInUser = session.getAttribute("LOGGED_USER");
+
+    // Redirect ke login jika user belum login
+    if (loggedInUser == null) {
+        return "redirect:/login";
+    }
+
+    // Hanya proses untuk PemilikKost
+    if (loggedInUser instanceof PemilikKost) {
+        PemilikKost pemilikKost = (PemilikKost) loggedInUser;
+        model.addAttribute("user", pemilikKost.getUser()); // Tambahkan data User terkait ke model
+    } else {
+        model.addAttribute("message", "Invalid user type."); // Jika user bukan PemilikKost
+        return "unexpectedError";
+    }
+
+    return "editprofileaspemilik"; // Arahkan ke JSP `editprofileaspemilik.jsp`
+}
+
+@PostMapping("/editprofileaspemilik")
+public String updateProfilePemilik(User user, HttpSession session, Model model) {
+    try {
+        Object loggedInUser = session.getAttribute("LOGGED_USER");
+
+        // Hanya proses untuk PemilikKost
+        if (loggedInUser instanceof PemilikKost) {
+            PemilikKost pemilikKost = (PemilikKost) loggedInUser;
+            User existingUser = pemilikKost.getUser();
+
+            // Update username dan password (jika disediakan)
+            existingUser.setUsername(user.getUsername());
+            if (user.getPassword() != null && !user.getPassword().isEmpty()) {
+                existingUser.setPassword(user.getPassword());
+            }
+
+            // Simpan perubahan ke database melalui service
+            Response response = userService.updateUser(existingUser);
+
+            // Tampilkan pesan berdasarkan status respons
+            if (response.getStatus() == HttpStatus.OK.value()) {
+                session.setAttribute("LOGGED_USER", pemilikKost);
+                model.addAttribute("successMessage", "Profile updated successfully.");
+            } else {
+                model.addAttribute("errorMessage", response.getMessage());
+            }
+        } else {
+            model.addAttribute("message", "Invalid user type.");
+            return "unexpectedError";
+        }
+
+        return "editprofileaspemilik"; // Kembali ke halaman `editprofileaspemilik.jsp`
+    } catch (Exception e) {
+        e.printStackTrace();
+        model.addAttribute("errorMessage", "Error updating profile: " + e.getMessage());
+        return "editprofileaspemilik";
+    }
+}
+ 
 }
