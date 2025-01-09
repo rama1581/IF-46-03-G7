@@ -28,7 +28,7 @@
     </div>
     <div id="chatbot-footer" style="padding: 10px; display: flex; align-items: center;">
         <input type="text" id="user-input" class="form-control" placeholder="Ketik pesan..." onkeypress="handleKeyPress(event)" style="flex: 1; margin-right: 10px;" />
-        <button class="btn btn-primary" onclick="sendMessage()" style="margin-left: auto;">Kirim</button>
+        <button class="chatbot-submit" onclick="sendMessage()" style="margin-left: auto;">Kirim</button>
     </div>
     </div>
 
