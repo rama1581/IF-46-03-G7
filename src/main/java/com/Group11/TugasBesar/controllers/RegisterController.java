@@ -69,6 +69,7 @@ public class RegisterController {
             model.addAttribute("isAccountAlreadyExist", true);
             return "registerPage/registerAsPemilik";
         } else {
+            model.addAttribute("isRegistrationSuccess", true);
             return "redirect:/login";
         }
     }
