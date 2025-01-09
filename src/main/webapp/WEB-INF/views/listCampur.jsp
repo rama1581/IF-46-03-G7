@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KOST-IN - Kost Campur</title>
-    <link rel="stylesheet" href="css/Homepage.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="../src/main/resources/static/css/style.css"> -->
+    <link rel="stylesheet" href="../../../resources/static/css/list.css" />
 </head>
 <body>
     <!-- Navbar -->
@@ -39,53 +38,20 @@
                         <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#helpModal">Pusat Bantuan</a>
                     </li>
                     
-                    <!-- Dropdown Notifikasi dengan Toggler -->
+                    <!-- Notifikasi -->
                     <li class="nav-item position-relative">
-                        <a class="nav-link" href="#" id="notificationToggle">
-                            <img src="../aset/Bell.png" alt="Notifikasi" width="35px" height="35px">
+                        <a class="nav-link" href="/notifications">
+                            <img id="notificationIcon" src="../aset/Bell.png" alt="Notifikasi" width="35px" height="35px">
                         </a>
-                    </li>
-                    
-                    <!-- Pesan notifikasi di luar navbar -->
-                    <div id="notificationMessage" 
-                    style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-                        background-color: rgba(0, 0, 0, 0.8); color: white; font-size: 18px;
-                        padding: 10px 30px; border-radius: 25px; display: none; z-index: 1000;
-                        white-space: nowrap; min-width: 200px; text-align: center;">
-                    </div>
+                    </li> 
 
-                    <script>
-                    // JavaScript untuk mengatur toggle notifikasi
-                    let isNotificationEnabled = false; // Status awal: Notifikasi dimatikan
-
-                    document.getElementById('notificationToggle').addEventListener('click', function (e) {
-                    e.preventDefault(); // Mencegah reload halaman
-                    const messageElement = document.getElementById('notificationMessage');
-
-                    // Toggle status notifikasi
-                    isNotificationEnabled = !isNotificationEnabled;
-
-                    if (isNotificationEnabled) {
-                        messageElement.textContent = "Notifikasi dinyalakan";
-                        messageElement.style.display = "block";
-                    } else {
-                        messageElement.textContent = "Notifikasi dimatikan";
-                        messageElement.style.display = "block";
-                    }
-
-                    // Sembunyikan pesan setelah 3 detik
-                    setTimeout(() => {
-                        messageElement.style.display = "none";
-                    }, 3000);
-                    });
-                    </script>
                     <!-- Foto User Dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="../aset/icon.png" alt="Login" width="40px" height="40px">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-start dropdown-menu-end">
-                            <li><a class="dropdown-item" href="../editprofile">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="../editprofileaspencari">Edit Profile</a></li>
                             <li><a class="dropdown-item" href="../booking/list">Riwayat Booking</a></li>
                             <li><a class="dropdown-item" href="../logout">Logout</a></li>
                         </ul>
@@ -96,8 +62,43 @@
     </nav>
     <!-- Header End -->
 
-    <!-- Modal Pusat Bantuan -->
-    <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+     <!-- Modal Konfirmasi Logout -->
+     <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="logoutModalLabel">Konfirmasi Logout</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Apakah Anda yakin ingin keluar?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button id="confirmLogout" class="btn btn-danger">Keluar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Tangkap tombol logout di dropdown dan tambahkan event listener
+        document.querySelectorAll('a[href="../logout"]').forEach(function (logoutLink) {
+        logoutLink.addEventListener('click', function (event) {
+            event.preventDefault(); // Cegah redirect langsung
+            const logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
+            logoutModal.show(); // Tampilkan modal konfirmasi logout
+        });
+    });
+
+    // Ketika tombol "Keluar" diklik pada modal
+    document.getElementById('confirmLogout').addEventListener('click', function () {
+        window.location.href = "../logout"; // Ganti dengan URL logout Anda
+    });
+</script>
+
+     <!-- Modal Pusat Bantuan -->
+     <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -113,88 +114,82 @@
             </div>
         </div>
     </div>
-
-    <!-- Content Start -->
-    <section class="content">
-        <div class="container">
-            <h1 class="page-title">Daftar Kost Campur</h1>
-            <div class="row">
-                <!-- Kost Campur A -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="../aset/kost3.jpg" class="card-img-top" alt="Kost Campur 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Kost Campur A</h5>
-                            <p class="card-text">Harga: Rp 900.000/bulan</p>
-                            <a href="#" class="btn btn-primary">Detail</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kost Campur B -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="../aset/kost3.jpg" class="card-img-top" alt="Kost Putra 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Kost Campur B</h5>
-                            <p class="card-text">Harga: Rp 1.000.000/bulan</p>
-                            <a href="#" class="btn btn-primary">Detail</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kost Campur C -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="../aset/kost3.jpg" class="card-img-top" alt="Kost Putra 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Kost Campur C</h5>
-                            <p class="card-text">Harga: Rp 1.100.000/bulan</p>
-                            <a href="#" class="btn btn-primary">Detail</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kost Campur D -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="../aset/kost3.jpg" class="card-img-top" alt="Kost Putra 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Kost Campur D</h5>
-                            <p class="card-text">Harga: Rp 1.200.000/bulan</p>
-                            <a href="#" class="btn btn-primary">Detail</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kost Campur E -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="../aset/kost3.jpg" class="card-img-top" alt="Kost Putra 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Kost Campur E</h5>
-                            <p class="card-text">Harga: Rp 1.300.000/bulan</p>
-                            <a href="#" class="btn btn-primary">Detail</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kost Campur F -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="../aset/kost3.jpg" class="card-img-top" alt="Kost Putra 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Kost Campur F</h5>
-                            <p class="card-text">Harga: Rp 1.400.000/bulan</p>
-                            <a href="#" class="btn btn-primary">Detail</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tambahkan lebih banyak kost jika perlu -->
+    
+    <!-- Content -->
+    <div class="container my-5">
+        <div class="row mt-5">
+            <div class="col-12 text-center mb-4">
+                <br>
+                <h1 class="page-title">Daftar Kost Campur</h1>
             </div>
         </div>
-    </section>
-    <!-- Content End -->
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100" onclick="window.location.href='../kost/302'" style="cursor: pointer;">
+                    <img src="../aset/kost10.jpg" alt="Gambar Kost 1" class="card-img-top" style="height: 300px;">
+                    <div class="card-body">
+                        <span class="badge bg-primary">Campuran</span>
+                        <h5 class="card-title mt-2">Kost Singgahsini</h5>
+                        <p class="card-text">Alamat: Deket Gate 3 Telkom </p>
+                        <p class="card-text">WiFi - Kasur - Akses 24 Jam</p>
+                        <p class="card-text text-success fw-bold">5.0 ★</p>
+                        <p class="card-text text-danger">Diskon 54rb <del>Rp705.000</del></p>
+                        <p class="card-text fw-bold">Rp650.600 (Bulan pertama)</p>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100" onclick="window.location.href='../kost/303'" style="cursor: pointer;">
+                    <img src="../aset/kost11.jpg" alt="Gambar Kost 1" class="card-img-top" style="height: 300px;">
+                    <div class="card-body">
+                        <span class="badge bg-primary">Campuran</span>
+                        <h5 class="card-title mt-2">The Kos</h5>
+                        <p class="card-text">Alamat: Jalan Telekomunikasi </p>
+                        <p class="card-text">WiFi - Kasur - Akses 24 Jam</p>
+                        <p class="card-text text-success fw-bold">5.0 ★</p>
+                        <p class="card-text text-danger">Diskon 54rb <del>Rp705.000</del></p>
+                        <p class="card-text fw-bold">Rp650.600 (Bulan pertama)</p>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="col-md-4 mb-4">
+                <a href="../kost/304" class="text-decoration-none text-dark">
+                    <div class="card h-100">
+                        <img src="../aset/kost12.jpg" alt="Gambar Kost 2" class="card-img-top" style="height: 300px;">
+                        <div class="card-body">
+                            <span class="badge bg-primary">Campuran</span>
+                            <h5 class="card-title mt-2">Kost Bintaro</h5>
+                            <p class="card-text">Alamat: Deket Gate 2</p>
+                            <p class="card-text">WiFi - AC - Parkir Motor</p>
+                            <p class="card-text text-success fw-bold">4.8 ★</p>
+                            <p class="card-text text-danger">Diskon 50rb <del>Rp750.000</del></p>
+                            <p class="card-text fw-bold">Rp700.000 (Bulan pertama)</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100" onclick="window.location.href='../kost/305'" style="cursor: pointer;">
+                    <img src="../aset/kost13.jpg" alt="Gambar Kost 1" class="card-img-top" style="height: 300px;">
+                    <div class="card-body">
+                        <span class="badge bg-primary">Campuran</span>
+                        <h5 class="card-title mt-2">Kost Eka</h5>
+                        <p class="card-text text-muted">Alamat: ${kost.address}</p>
+                        <p class="card-text">WiFi - Kasur - Akses 24 Jam</p>
+                        <p class="card-text text-success fw-bold">5.0 ★</p>
+                        <p class="card-text text-danger">Diskon 54rb <del>Rp705.000</del></p>
+                        <p class="card-text fw-bold">Rp650.600 (Bulan pertama)</p>
+                    </div>
+                </div>
+            </div> 
+        </div>
+            </a>
+            </div>
+        </div>
+    </div>
 
     <br><br><br><br><br><br><br>
     <!-- Footer -->
@@ -242,4 +237,3 @@
     <jsp:include page="/WEB-INF/views/chat.jsp" />
 </body>
 </html>
-
