@@ -1,94 +1,211 @@
-
-
-*{
-    padding: 10px;
+:root {
+    --color-primary: #0073ff;
+    --color-white: #e9e9e9;
+    --color-black: #141d28;
+    --color-black-1: #212b38;
+}
+  
+* {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
+    padding: 0;
     box-sizing: border-box;
-    font-family: Poppins;
 }
 
-.sidebar {
-    position: fixed;
-    background: rgba(217, 217, 217, 0.3);
-    width: 275px;
-    height: 100%;
-    top: 0;
+/* navbar */
+.fas {
+    float: right;
+    margin-left: 10px;
+    padding-top: 3px;
+    
+  }
+  
+  .navbar {
+    padding-top: 10px !important; /* Mengatur jarak atas navbar */
+    padding-bottom: 10px !important; /* Mengatur jarak bawah navbar */
+    padding-left: 47px !important;
+    padding-right: 30px !important;
+    opacity: 90%;
+    z-index: 1000;
+    width: 100%; /* Membuat navbar mengambil seluruh lebar */
+    
+  }
+  
+  .navbar-nav {
+    display: flex;
+    align-items: center; /* Menjaga item navbar tetap sejajar secara vertikal */
+    gap: 20px;
+  }
+  
+  /* dropdown menu style */
+  .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-menu ul li a {
+    font-size: 15.5px;
+    margin-top: 5px;
+  }
+  
+  .menu-bar ul li:hover .dropdown-menu {
+    display: block;
+    position: absolute;
     left: 0;
-    z-index: 1;
-}
+    top: 100%;
+    background-color: var(--color-black);
+  }
+  
+  
+  .menu-bar ul li:hover .dropdown-menu ul {
+    display: block;
+    margin: 10px;
+  }
+  
+  .menu-bar ul li:hover .dropdown-menu ul li {
+    width: 150px;
+    padding: 10px;
+  }
+  
+  /* dropdown kedua */
+  .dropdown-menu1 {
+    display: none;
+  }
+  
+  .dropdown-menu1 ul li a {
+    font-size: 15.5px;
+  }
+  
+  .menu-bar ul li:hover .dropdown-menu1 {
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 100%;
+    background-color: var(--color-black);
+  }
+  
+  
+  .menu-bar ul li:hover .dropdown-menu1 ul {
+    display: block;
+    margin: 10px;
+  }
+  
+  .menu-bar ul li:hover .dropdown-menu1 ul li {
+    width: 150px;
+    padding: 10px;
+  }
+  
+  
+  .hero {
+    height: calc(100vh - 80px);
+    background-image: url(./bg.jpg);
+    background-position: center;
+   
+  }
+  /* bagian search */
+  /* .hero {
+    position: relative;
+    height: 80vh;
+    background: url("kost-bedroom.jpg") no-repeat center center/cover;
+  } */
+  
+  /* Mengatur tinggi hero section */
+  .hero {
+    background-position: center;
+    height: 80vh;
+    color: white;
+    text-align: center; /* Memastikan semua elemen di dalam hero rata tengah */
+    padding-top: 50px; /* Menambahkan jarak dari atas */
+  }
 
-.sidebar ul {
-    margin-left: 15px;
-}
-
-.main {
-    margin-top: 45px;
-    padding: 5px;
-}
-
-
-.desc_kost button{
-    width: 214px;
-    height: 46px;
-    flex-shrink: 0;
-    border-radius: 13px;
-    background: #FFF;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  
+/* FOOTER */
+/* footer */
+.footer {
+    background-color: #1c1c1c;
+    color: #fff;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    height: 400px;
+    
+  }
+  
+  .social-media{
+    margin-left: 10px;
+    margin-top: 40px;
+  }
+  
+  .social-media a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 15px;
+    text-decoration: none;
+  }
+  
+  .contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    margin-left: 20px;
+  }
+  
+  .contact ul li {
+    margin: 35px 0;
+  }
+  
+  .contact ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal;
+  }
+  
+  .contact ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .language-country {
+    position: absolute;
+    top: 10px; /* Jarak dari atas footer */
+    right: 10px; /* Jarak dari kanan footer */
+    display: flex;
+    gap: 20px; /* Jarak antara language dan country */
+    justify-content: flex-end;
+  }
+  
+  .language-country select {
+    width: 150px; /* Ukuran dropdown */
     color: #000;
-    font-family: Poppins;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  }
+
+  .btn-primary {
+    background-color: #8B6D5A !important; /* Warna latar belakang */
+    border: none !important; /* Menghilangkan border default */
+    color: white !important; /* Warna teks */
+    border-radius: 25px; /* Membuat sudut membulat penuh */
+    padding: 10px 20px; /* Memberikan jarak dalam tombol */
+    font-weight: bold; /* Membuat teks lebih tebal */
+    text-align: center; /* Teks berada di tengah */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Menambahkan bayangan */
+    transition: all 0.3s ease; /* Efek transisi saat hover */
 }
 
-.addkos button{
-    width: 400px;
-    height: 615px;
-    flex-shrink: 0;
-    border-radius: 13px;
-    background: #FFF;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    color: #000;
-    font-family: Poppins;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+.btn-primary:hover {
+    background-color: #725242 !important; /* Warna lebih gelap saat hover */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4); /* Bayangan lebih besar saat hover */
 }
 
-.desc_kost p{
-    color: #000;
-    font-family: Poppins;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.card {
+    transition: all 0.3s ease-in-out; /* Efek transisi untuk hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan default */
+    border-radius: 10px; /* Sudut membulat */
 }
 
-.text h1{
-    margin-left: 150px;
-    margin-top: 50px;
-    color: #000000;
-    font-family: Poppins;
-    font-size: 45px;
-    font-style: normal;
-    font-weight: bolder;
-    line-height: normal;
+.card:hover {
+    transform: scale(1.05); /* Membesarkan ukuran sedikit saat hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan lebih besar */
+    background-color: #f8f9fa; /* Mengubah warna latar belakang saat hover */
 }
-
-.text2 h2{
-    margin-left: 150px;
-    margin-top: 30px;
-    color: #000000;
-    font-family: Poppins;
-    font-size: 30px;
-    font-style: normal;
-    line-height: normal;
-}
-
 
