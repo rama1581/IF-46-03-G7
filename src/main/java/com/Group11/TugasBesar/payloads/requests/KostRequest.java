@@ -7,7 +7,9 @@ public class KostRequest {
     private String address;
     private boolean allowedMale;
     private boolean allowedFemale;
+    private boolean approved; 
     private PemilikKost pemilikKost;
+    private long price;
 
     public KostRequest() {}
 
@@ -19,6 +21,22 @@ public class KostRequest {
         this.pemilikKost = pemilikKost;
     }
 
+    public boolean isApproved() {
+        return approved;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
+    }
+
+    public Long getPrice() {
+        return price;
+    }
+    
+    public void setPrice(Long price) {
+        this.price = price;
+    }
+    
     public String getName() {return name;}
 
     public void setName(String name) {this.name = name;}
