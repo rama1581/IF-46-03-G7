@@ -1,6 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%
+    String[] monthNames = {
+        "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+        "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+    };
+    request.setAttribute("monthNames", monthNames);
+%>
 <!DOCTYPE html>
 <html lang="en">
 <html>
@@ -19,7 +25,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; opacity: 0.75; width: 100%; padding: 10px 0;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/home">
+            <a class="navbar-brand" href="/">
                 <img src="../aset/Home.png" alt="KOST-IN" width="120px" height="40px">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,53 +49,20 @@
                         <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#helpModal">Pusat Bantuan</a>
                     </li>
                     
-                    <!-- Dropdown Notifikasi dengan Toggler -->
+                    <!-- Notifikasi -->
                     <li class="nav-item position-relative">
-                        <a class="nav-link" href="#" id="notificationToggle">
-                            <img src="../aset/Bell.png" alt="Notifikasi" width="35px" height="35px">
+                        <a class="nav-link" href="/notifications">
+                            <img id="notificationIcon" src="../aset/Bell.png" alt="Notifikasi" width="35px" height="35px">
                         </a>
-                    </li>
+                    </li>   
                     
-                    <!-- Pesan notifikasi di luar navbar -->
-                    <div id="notificationMessage" 
-                    style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-                        background-color: rgba(0, 0, 0, 0.8); color: white; font-size: 18px;
-                        padding: 10px 30px; border-radius: 25px; display: none; z-index: 1000;
-                        white-space: nowrap; min-width: 200px; text-align: center;">
-                    </div>
-
-                    <script>
-                    // JavaScript untuk mengatur toggle notifikasi
-                    let isNotificationEnabled = false; // Status awal: Notifikasi dimatikan
-
-                    document.getElementById('notificationToggle').addEventListener('click', function (e) {
-                    e.preventDefault(); // Mencegah reload halaman
-                    const messageElement = document.getElementById('notificationMessage');
-
-                    // Toggle status notifikasi
-                    isNotificationEnabled = !isNotificationEnabled;
-
-                    if (isNotificationEnabled) {
-                        messageElement.textContent = "Notifikasi dinyalakan";
-                        messageElement.style.display = "block";
-                    } else {
-                        messageElement.textContent = "Notifikasi dimatikan";
-                        messageElement.style.display = "block";
-                    }
-
-                    // Sembunyikan pesan setelah 3 detik
-                    setTimeout(() => {
-                        messageElement.style.display = "none";
-                    }, 3000);
-                    });
-                    </script>
                     <!-- Foto User Dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="../aset/icon.png" alt="Login" width="40px" height="40px">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-start dropdown-menu-end">
-                            <li><a class="dropdown-item" href="../editprofile">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="../editprofileaspencari">Edit Profile</a></li>
                             <li><a class="dropdown-item" href="../booking/list">Riwayat Booking</a></li>
                             <li><a class="dropdown-item" href="../logout">Logout</a></li>
                         </ul>
@@ -99,6 +72,40 @@
         </div>
     </nav>
     <!-- navbar section end -->
+
+    <!-- Modal Konfirmasi Logout -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="logoutModalLabel">Konfirmasi Logout</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Apakah Anda yakin ingin keluar?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button id="confirmLogout" class="btn btn-danger">Keluar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Tangkap tombol logout di dropdown dan tambahkan event listener
+        document.querySelectorAll('a[href="../logout"]').forEach(function (logoutLink) {
+        logoutLink.addEventListener('click', function (event) {
+            event.preventDefault(); // Cegah redirect langsung
+            const logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
+            logoutModal.show(); // Tampilkan modal konfirmasi logout
+        });
+    });
+
+    // Ketika tombol "Keluar" diklik pada modal
+    document.getElementById('confirmLogout').addEventListener('click', function () {
+        window.location.href = "../logout"; // Ganti dengan URL logout Anda
+    });
+</script>
     <!-- Modal Pusat Bantuan -->
     <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -152,25 +159,31 @@
 
     <!-- booking kos section start -->
     <section class="list_kost">
-        <div class="text" style="font-size: 30px; margin-left: 280px;">
+        <div class="text" style="font-size: 30px; margin-top: auto; text-align: center;">
             <h1>Riwayat Transaksi</h1>
         </div>
-        <div class="container my-5" >
+        <div class="container my-5";>
             <!-- <div class="row border border-danger"></div> -->
+            <style>
+                .desc_kost {
+                    margin: 10px; /* Atur jarak sesuai kebutuhan */
+                }
+            </style>
             <div class="row">
                 <c:forEach var="booking" items="${bookings}">
                     <div class="col-4 desc_kost my-3" style="border: 2px solid #ccc; padding: 45px; border-radius: 20px;">
                         <img src="/aset/kost1.jpg" alt="">
-                        <p style="margin-top: 15px;">Room ID: ${booking.booking_id}</p>
-                        <form method="get" action="/booking/${booking.booking_id}/date">
-                            <button type="submit" class="my-3">
-                                <b style="margin-top: 5px;">${booking.room.kost.name}</b>
-                            </button>
+                        <form method="get" action="/booking/list">
+                            <div style="display: flex; justify-content: center; width: 100%;">
+                                <button type="submit" class="my-3" style="flex: 1; max-width: auto;">
+                                    <b style="margin-top: 5px;">${booking.room.kost.name}</b>
+                                </button>
+                            </div>
                         </form>
                         
                         <div class="d-flex flex-column">
-                            <p class="m-0">Tanggal Masuk  : ${booking.entryDate.date} ${booking.entryDate.month + 1} ${booking.entryDate.year + 1900}</p>
-                            <p class="m-0">Tanggal Keluar : ${booking.exitDate.date} ${booking.exitDate.month + 1} ${booking.exitDate.year + 1900}</p>
+                            <p class="m-0">Tanggal Masuk  : ${booking.entryDate.date} ${monthNames[booking.entryDate.month]} ${booking.entryDate.year + 1900}</p>
+                            <p class="m-0">Tanggal Keluar : ${booking.exitDate.date} ${monthNames[booking.exitDate.month]} ${booking.exitDate.year + 1900}</p>
                             <p class="m-0">Booking Status : ${booking.payment.status}</p>
                         </div>
                     </div>
