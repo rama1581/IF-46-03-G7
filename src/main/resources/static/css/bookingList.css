@@ -83,7 +83,7 @@
 .desc_kost p{
     color: #000;
     font-family: Poppins;
-    font-size: 20px;
+    font-size: 17px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -111,6 +111,7 @@
 /* Agar konten tidak tertutup navbar */
 .list_kost {
     padding-top: 120px; /* Sesuaikan sesuai ketinggian navbar */
+    
 }
 
 /* Menjadikan judul "Riwayat Transaksi" ke tengah */
