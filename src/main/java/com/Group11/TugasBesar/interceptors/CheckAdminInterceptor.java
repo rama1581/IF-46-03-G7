@@ -17,18 +17,18 @@ public class CheckAdminInterceptor implements HandlerInterceptor {
         if (handler instanceof HandlerMethod) {
             HandlerMethod handlerMethod = (HandlerMethod) handler;
 
-            // Check for the annotation on the method
+            
             CheckAdmin methodAnnotation = handlerMethod.getMethod().getAnnotation(CheckAdmin.class);
 
-            // Check for the annotation on the class
+            
             CheckAdmin classAnnotation = handlerMethod.getBeanType().getAnnotation(CheckAdmin.class);
 
-            // If either the method or class is annotated, perform the check
+            
             
             if (methodAnnotation != null || classAnnotation != null) {
                 System.out.println("In CheckPencariKostInterceptor.java:\nUSER_TYPE = " + request.getSession().getAttribute("USER_TYPE"));
 
-                // Check if user is PencariKost, otherwise redirect to login page
+                
                 Object user = request.getSession().getAttribute("LOGGED_USER");
                 if (!(user instanceof Admin)) {
                     response.sendRedirect("/login");
