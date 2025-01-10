@@ -119,3 +119,13 @@
     font-weight: 500;
     line-height: normal;
 }
+
+.main span {
+    font-size: 40px;
+    font-weight: bolder;
+    margin-top: 40px;
+    padding-left: 0px; /* Geser teks agar tidak terhalang sidebar */
+    display: block;
+    position: relative;
+    left: px; /* Menjaga jarak dari sidebar */
+}
