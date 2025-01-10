@@ -1,6 +1,7 @@
 package com.Group11.TugasBesar.services.notification;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -53,18 +54,31 @@ public class NotificationServiceImpl implements NotificationService{
 
     @Override
     public Response getNotificationByPencariKost(PencariKost pencariKost) {
-        
+    if (pencariKost == null) {
+        return new Response(400, "PencariKost tidak valid.", null);
+    }
+
+    List<Notification> notifications = notificationRepository.findByPencariKost(pencariKost);
+
+    return new Response(200, "Notifications fetched successfully", notifications);
+}
+
+    
+    @Override
+    public Response getNotificationsByConfirmedBookings(int pencariKostId) {
+    try {
+        // Ambil daftar notifikasi terkait PencariKost
+        PencariKost pencariKost = pencariKostRepository.findById(pencariKostId)
+                .orElseThrow(() -> new NoSuchElementException("PencariKost not found with ID: " + pencariKostId));
         List<Notification> notifications = notificationRepository.findByPencariKost(pencariKost);
 
-        pencariKost.setNotifications(notifications);
-        pencariKostRepository.save(pencariKost);
-
-        Response response = new Response();
-        response.setStatus(HttpStatus.FOUND.value());
-        response.setMessage("Notifications was found");
-        response.setData(notifications);
-        
-        return response;
+        // Bungkus dalam Response
+        return new Response(200, "Notifications fetched successfully", notifications);
+    } catch (NoSuchElementException e) {
+        return new Response(404, "PencariKost not found: " + e.getMessage(), null);
+    } catch (Exception e) {
+        return new Response(500, "Error: " + e.getMessage(), null);
     }
-    
+}
+
 }
