@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Selamat Datang di KOST-IN!</title>
     <link rel="stylesheet" href="css/Homepage.css" />
     <!-- <link rel="stylesheet" href="Home.css" /> -->
     <!-- Bootstrap 5 -->
@@ -17,7 +17,7 @@
         <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; opacity: 0.75; width: 100%; padding: 10px 0;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="">
+            <a class="navbar-brand" href="../">
                 <img src="../aset/Home.png" alt="KOST-IN" width="120px" height="40px">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,9 +32,9 @@
                         </a>
                         <!-- Tambahkan class dropdown-menu-start agar dropdown muncul di kiri -->
                         <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="../putri">Kost Wanita</a></li>
-                            <li><a class="dropdown-item" href="../putra">Kost Pria</a></li>
-                            <li><a class="dropdown-item" href="../campur">Kost Campur</a></li>
+                            <li><a class="dropdown-item" href="../login">Kost Perempuan</a></li>
+                            <li><a class="dropdown-item" href="../login">Kost Laki-Laki</a></li>
+                            <li><a class="dropdown-item" href="../login">Kost Campur</a></li>
                         </ul>
                     </li>
                      <!-- Pusat Bantuan -->
@@ -84,7 +84,7 @@
                 <!-- Search bar -->
                 <form action="/kost/search" method="get" class="d-flex justify-content-start">
                     <div class="input-group w-75">
-                        <input type="text" class="form-control" placeholder="Masukkan Lokasi/Area/Alamat" name="query">
+                        <input type="text" name="q" class="form-control" placeholder="Masukkan Lokasi/Area/Alamat" name="query">
                         <button class="btn btn-primary" type="submit">Cari <i class="fas fa-search"></i></button>
                     </div>
                 </form>
