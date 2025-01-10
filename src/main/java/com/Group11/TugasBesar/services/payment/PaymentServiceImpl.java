@@ -1,22 +1,27 @@
 package com.Group11.TugasBesar.services.payment;
 
-import java.util.NoSuchElementException;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.Group11.TugasBesar.models.Payment;
+import com.Group11.TugasBesar.models.PemilikKost;
 import com.Group11.TugasBesar.payloads.requests.PaymentRequest;
 import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.repositories.PaymentRepository;
+import com.Group11.TugasBesar.repositories.PemilikKostRepository;
 
 @Service
 public class PaymentServiceImpl implements PaymentService{
 
     @Autowired
     private PaymentRepository paymentRepository;
+
+    @Autowired
+	private PemilikKostRepository pemilikKostRepository;
 
     @Override
     public Response addPayment(PaymentRequest paymentRequest) {
@@ -114,4 +119,34 @@ public class PaymentServiceImpl implements PaymentService{
 
         return response;
     }
+
+    
+    @Override
+    public Response transferToPemilikKost(Payment payment) {
+        PemilikKost pemilikKost = payment.getPemilikKost();
+    
+        if (pemilikKost == null) {
+            System.out.println("Pemilik Kost tidak ditemukan pada Payment ID: " + payment.getPayment_id());
+            return new Response(HttpStatus.NOT_FOUND.value(), "Pemilik Kost tidak ditemukan!", null);
+        }
+        
+    
+        // Ambil saldo saat ini
+        Long currentBalance = pemilikKost.getBalance() != null ? pemilikKost.getBalance() : 0L;
+    
+        // Update saldo dengan jumlah pembayaran
+        System.out.println("Saldo sebelum: Rp" + currentBalance);
+	    pemilikKost.setBalance(currentBalance + payment.getAmount());
+	    System.out.println("Saldo sesudah: Rp" + pemilikKost.getBalance());
+        pemilikKostRepository.save(pemilikKost); // Simpan ke database
+    
+        System.out.println("Saldo berhasil diupdate untuk Pemilik Kost ID: " + pemilikKost.getPemilikKost_id());
+        return new Response(HttpStatus.OK.value(), "Saldo berhasil ditransfer!", pemilikKost);
+    }
+
+    @Override
+    public long getBalanceByPemilikKostId(int pemilikKostId) {
+        return pemilikKostRepository.findBalanceByPemilikKostId(pemilikKostId);
+    }
+    
 }
