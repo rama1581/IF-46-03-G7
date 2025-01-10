@@ -5,109 +5,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cari Kos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <title>Cari Kost</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/kostList.css"/>
-    <link rel="stylesheet" href="css/Homepage.css" />
-
+    <link rel="stylesheet" href="../css/Homepage.css" />
 </head>
-<body class="Search">
+<body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; opacity: 0.75; width: 100%; padding: 10px 0;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="../">
+        <a class="navbar-brand" href="/home">
             <img src="../aset/Home.png" alt="KOST-IN" width="120px" height="40px">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-               <!-- Dropdown Cari Apa? -->
-               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Cari Apa?
-                </a>
-                <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="../putri">Kost Wanita</a></li>
-                    <li><a class="dropdown-item" href="../putra">Kost Pria</a></li>
-                    <li><a class="dropdown-item" href="../campur">Kost Campur</a></li>
-                </ul>
-            </li>
-            <!-- Pusat Bantuan -->
-            <li class="nav-item">
-                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#helpModal">Pusat Bantuan</a>
-            </li>
-            
-            <!-- Dropdown Notifikasi dengan Toggler -->
-            <li class="nav-item position-relative">
-                <a class="nav-link" href="#" id="notificationToggle">
-                    <img src="../aset/Bell.png" alt="Notifikasi" width="35px" height="35px">
-                </a>
-            </li>
-            
-            <!-- Pesan notifikasi di luar navbar -->
-            <div id="notificationMessage" 
-            style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-                background-color: rgba(0, 0, 0, 0.8); color: white; font-size: 18px;
-                padding: 10px 30px; border-radius: 25px; display: none; z-index: 1000;
-                white-space: nowrap; min-width: 200px; text-align: center;">
-            </div>
+                <!-- Dropdown Cari Apa? -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Cari Apa?
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../putri">Kost Wanita</a></li>
+                        <li><a class="dropdown-item" href="../putra">Kost Pria</a></li>
+                        <li><a class="dropdown-item" href="../campur">Kost Campur</a></li>
+                    </ul>
+                </li>
+                <!-- Pusat Bantuan -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#helpModal">Pusat Bantuan</a>
+                </li>
+                
+                <!-- Notifikasi -->
+                <li class="nav-item position-relative">
+                    <a class="nav-link" href="/notifications">
+                        <img id="notificationIcon" src="../aset/Bell.png" alt="Notifikasi" width="35px" height="35px">
+                    </a>
+                </li>
 
-            <script>
-            // JavaScript untuk mengatur toggle notifikasi
-            let isNotificationEnabled = false; // Status awal: Notifikasi dimatikan
 
-            document.getElementById('notificationToggle').addEventListener('click', function (e) {
-            e.preventDefault(); // Mencegah reload halaman
-            const messageElement = document.getElementById('notificationMessage');
-
-            // Toggle status notifikasi
-            isNotificationEnabled = !isNotificationEnabled;
-
-            if (isNotificationEnabled) {
-                messageElement.textContent = "Notifikasi dinyalakan";
-                messageElement.style.display = "block";
-            } else {
-                messageElement.textContent = "Notifikasi dimatikan";
-                messageElement.style.display = "block";
-            }
-
-            // Sembunyikan pesan setelah 3 detik
-            setTimeout(() => {
-                messageElement.style.display = "none";
-            }, 3000);
-            });
-            </script>
-            <!-- Foto User Dropdown -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="../aset/icon.png" alt="Login" width="40px" height="40px">
-                </a>
-                <ul class="dropdown-menu dropdown-menu-start dropdown-menu-end">
-                    <li><a class="dropdown-item" href="../editprofile">Edit Profile</a></li>
-                    <li><a class="dropdown-item" href="../booking/list">Riwayat Booking</a></li>
-                    <li><a class="dropdown-item" href="../logout">Logout</a></li>
-                </ul>
-            </li>
-        </ul>
+                <!-- Foto User Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="../aset/icon.png" alt="Login" width="40px" height="40px">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-start dropdown-menu-end">
+                        <li><a class="dropdown-item" href="../editprofileaspencari">Edit Profile</a></li>
+                        <li><a class="dropdown-item" href="../booking/list">Riwayat Booking</a></li>
+                        <li><a class="dropdown-item" href="../logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
 </nav>
 
- <!-- Modal Pusat Bantuan -->
- <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+<!-- Modal Pusat Bantuan -->
+<div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="helpModalLabel">Pusat Bantuan</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 <p>Selamat datang di Pusat Bantuan Kost-In! Jika Anda membutuhkan bantuan terkait pencarian kost, pengaturan akun, atau masalah lainnya, silahkan kontak ke email kami: cs@kostin.com.</p>
@@ -123,17 +86,15 @@
 <section class="mt-5 pt-5">
     <div class="container">
         <form action="/kost/search" method="get" class="row g-2 align-items-center">
-            <div class="col-12 col-md-8">
-                <input type="text" name="q" placeholder="Cari kost..." value="${query}" />
+            <div class="col-12 col-md-6">
+                <input type="text" name="q" placeholder="Cari kost..." class="form-control" value="${query}" />
             </div>
-            <div class="col-6 col-md-2">
-                <div class="form-check">
+            <div class="col-12 col-md-6 d-flex align-items-center justify-content-end">
+                <div class="form-check me-3">
                     <input class="form-check-input" type="checkbox" name="allowedMale" id="maleCheck" <c:if test="${allowedMale}">checked</c:if>>
                     <label class="form-check-label" for="maleCheck">Laki-Laki</label>
                 </div>
-            </div>
-            <div class="col-6 col-md-2">
-                <div class="form-check">
+                <div class="form-check me-3">
                     <input class="form-check-input" type="checkbox" name="allowedFemale" id="femaleCheck" <c:if test="${allowedFemale}">checked</c:if>>
                     <label class="form-check-label" for="femaleCheck">Perempuan</label>
                 </div>
@@ -148,28 +109,49 @@
     </div>
 </section>
 
+
+
+
 <!-- Results Section -->
 <section class="my-4">
-    <div class="container">
+    <div class="container results-container">
         <h2 class="mb-3">Hasil Pencarian</h2>
         <c:choose>
             <c:when test="${not empty kosts}">
-                <div class="row">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
                     <c:forEach var="kost" items="${kosts}">
                         <div class="col-md-4 mb-4">
-                            <div class="card h-100">
+                            <div class="card h-100" onclick="window.location.href='/kost/${kost.kost_id}'" style="cursor: pointer;">
+                                <!-- Gunakan imageUrl dari data Kost -->
+                                <img src="${kost.imageUrl}" alt="Gambar Kost" class="card-img-top" style="height: 300px;">
                                 <div class="card-body">
+                                    <c:choose>
+                                        <c:when test="${kost.allowedFemale && !kost.allowedMale}">
+                                            <span class="badge bg-warning">Perempuan</span>
+                                        </c:when>
+                                        <c:when test="${kost.allowedMale && !kost.allowedFemale}">
+                                            <span class="badge bg-success">Laki-Laki</span>
+                                        </c:when>
+                                        <c:when test="${kost.allowedMale && kost.allowedFemale}">
+                                            <span class="badge bg-primary">Campuran</span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span class="badge bg-secondary">Tidak Tersedia</span>
+                                        </c:otherwise>
+                                    </c:choose>
+                    
                                     <h5 class="card-title">${kost.name}</h5>
                                     <p class="card-text">Alamat: ${kost.address}</p>
-                                    <p class="card-text">
-                                        <span class="badge bg-success"><c:if test="${kost.allowedMale}">Laki-Laki</c:if></span>
-                                        <span class="badge bg-warning"><c:if test="${kost.allowedFemale}">Perempuan</c:if></span>
-                                    </p>
-                                    <a href="<c:url value='/kost/${kost.kost_id}' />" class="btn btn-outline-primary w-100">Lihat Detail</a>
+                                    <p class="card-text">WiFi - Kasur - Akses 24 Jam</p>
+                                    <p class="card-text text-success fw-bold">5.0 ★</p>
+                                    <p class="card-text text-danger">Ada Kamar Yang Diskon 50%!! Dari Harga <del>Rp${kost.price}</del></p>
+                                    <p class="card-text fw-bold">Jadi Harga : Rp ${kost.discountPrice} / bulan</p>
                                 </div>
                             </div>
                         </div>
                     </c:forEach>
+                    
+
                 </div>
             </c:when>
             <c:otherwise>
@@ -257,5 +239,6 @@ document.getElementById('confirmLogout').addEventListener('click', function () {
 
     <!-- Bootstrap 5 Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <jsp:include page="/WEB-INF/views/chat.jsp" />
 </body>
 </html>
