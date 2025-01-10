@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import com.Group11.TugasBesar.models.Payment;
 import com.Group11.TugasBesar.models.PemilikKost;
 import com.Group11.TugasBesar.models.User;
 import com.Group11.TugasBesar.payloads.requests.UserRequest;
@@ -89,4 +90,31 @@ public class PemilikKostServiceImpl implements PemilikKostService {
 	// 	response.setData(pemilikKost);
 	// 	return response;
 	// }
+
+	@Override
+	public Response transferToPemilikKost(Payment payment) {
+    if (payment == null || payment.getPemilikKost() == null) {
+        return new Response(HttpStatus.BAD_REQUEST.value(), "Payment atau Pemilik Kost tidak valid!", null);
+    }
+
+    PemilikKost pemilikKost = payment.getPemilikKost();
+
+    // Ambil saldo saat ini
+    Long currentBalance = pemilikKost.getBalance() != null ? pemilikKost.getBalance() : 0L;
+
+    // Update saldo dengan jumlah pembayaran
+    pemilikKost.setBalance(currentBalance + payment.getAmount());
+    pemilikKostRepository.save(pemilikKost); // Simpan ke database
+
+    System.out.println("Saldo berhasil diupdate untuk Pemilik Kost ID: " + pemilikKost.getPemilikKost_id());
+
+    return new Response(HttpStatus.OK.value(), "Saldo berhasil ditransfer!", pemilikKost);
+}
+
+
+@Override
+    public long getBalanceByPemilikKostId(int pemilikKostId) {
+        return pemilikKostRepository.findBalanceByPemilikKostId(pemilikKostId);
+    }
+
 }
