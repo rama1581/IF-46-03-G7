@@ -1,10 +1,9 @@
 package com.Group11.TugasBesar.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import java.util.ArrayList;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -54,5 +53,21 @@ public class PemilikKost {
         this.user = user;
     }
 
-    
+    @Column(name = "balance")
+    private Long balance = 0L;
+
+    public Long getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Long balance) {
+        this.balance = balance;
+    }
+
+    public void addBalance(Long amount) {
+        if (this.balance == null) {
+            this.balance = 0L; // Inisialisasi jika null
+        }
+        this.balance += amount; // Tambahkan saldo
+    }    
 }

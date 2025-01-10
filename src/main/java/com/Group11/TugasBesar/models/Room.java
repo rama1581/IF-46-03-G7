@@ -29,12 +29,22 @@ public class Room {
     @JoinColumn(name = "kost_id")
     private Kost kost;
 
+    // Menambahkan field type untuk menyimpan tipe kamar
+    @Column
+    private String type;  // Misalnya: "Putra", "Putri", atau "Campur"
+
+    // Menambahkan field untuk menyimpan URL gambar
+    @Column(columnDefinition = "TEXT")
+    private String imageUrl;
+
     public Room() {}
 
-    public Room(long price, String description, boolean booked) {
+    public Room(long price, String description, boolean booked, String type, String imageUrl) {
         this.price = price;
         this.description = description;
         this.booked = booked;
+        this.type = type;
+        this.imageUrl = imageUrl;
     }
 
     public int getRoom_id() {
@@ -44,6 +54,10 @@ public class Room {
     public void setRoom_id(int room_id) {
         this.room_id = room_id;
     }
+
+    public int getKostId() {
+        return this.kost != null ? this.kost.getKost_id() : 0; // Mengembalikan 0 jika kost null
+    }    
 
     public long getPrice() {
         return price;
@@ -77,5 +91,19 @@ public class Room {
         this.kost = kost;
     }
 
-    
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 }

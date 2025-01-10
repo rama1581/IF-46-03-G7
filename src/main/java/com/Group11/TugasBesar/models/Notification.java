@@ -2,6 +2,8 @@ package com.Group11.TugasBesar.models;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,11 +24,12 @@ public class Notification {
     @Column(columnDefinition = "TEXT")
     private String message;
 
-    @Column
-    private Date notifyTime;
-    
-    @ManyToOne
+    @Column(nullable = false)
+    private Date notifyTime = new Date(); // Nilai default
+
+   @ManyToOne
     @JoinColumn(name = "pencariKost_id")
+    @JsonBackReference
     private PencariKost pencariKost;
 
     public Notification() {
@@ -38,6 +41,7 @@ public class Notification {
         this.notifyTime = notifyTime;
         this.pencariKost = pencariKost;
     }
+    
 
     public int getNotification_id() {return notification_id;}
 
@@ -54,7 +58,5 @@ public class Notification {
     public PencariKost getPencariKost() {return pencariKost;}
 
     public void setPencariKost(PencariKost pencariKost) {this.pencariKost = pencariKost;}
-
-    
     
 }

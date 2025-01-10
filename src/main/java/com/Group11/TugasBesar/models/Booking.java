@@ -74,6 +74,5 @@ public class Booking {
     public Date getexpireTime() {return expireTime;}
 
     public void setexpireTime(Date expireTime) {this.expireTime = expireTime;}
-
     
 }

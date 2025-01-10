@@ -34,6 +34,53 @@ public class Kost {
     @Column
     private boolean allowedFemale;
 
+    @Column(name = "type")
+    private String type;
+
+    public String getType() {
+    return type;
+    }
+
+    public void setType(String type) {
+    this.type = type;
+    }
+
+    @Column
+    private String imageUrl;
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    
+    @Column
+    private Long price;
+
+    public Long getPrice() {
+        return price;
+    }
+
+    public void setPrice(Long price) {
+        if (price == null || price < 0) {
+            throw new IllegalArgumentException("Harga tidak boleh null atau negatif");
+        }
+        this.price = price;
+    }
+    
+
+    @Column
+
+    public Double getDiscountPrice() {
+        if (this.price != null) {
+            return this.price * 0.5; // Diskon 50%
+        }
+        return 0.0; // Diskon 0 jika harga tidak ada
+    }    
+
     @ManyToOne
     @JoinColumn(name = "pemilikKost_id")
     private PemilikKost pemilikKost;
