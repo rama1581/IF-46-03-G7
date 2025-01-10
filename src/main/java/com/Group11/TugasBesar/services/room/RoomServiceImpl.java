@@ -18,7 +18,7 @@ public class RoomServiceImpl implements RoomService{
     
     @Autowired
     private RoomRepository roomRepository;
-    
+
     @Override
     public Response addRoom(RoomRequest request) {
 
@@ -90,7 +90,7 @@ public class RoomServiceImpl implements RoomService{
 
         return response;
     }
-    
+
     @Override
     public Response getRooms() {
         List<Room> rooms = roomRepository.findAll();
@@ -129,4 +129,32 @@ public class RoomServiceImpl implements RoomService{
 
         return response;
     }
+
+    // Implementasi metode getRoomsByType
+    @Override
+    public Response getRoomsByType(String type) {
+        List<Room> rooms = roomRepository.findByType(type); // Menggunakan query di repository untuk menemukan kamar berdasarkan tipe
+
+        Response response = new Response();
+        response.setStatus(HttpStatus.CREATED.value());
+        response.setMessage("Rooms found!");
+        response.setData(rooms);
+
+        return response;
+    }
+
+    @Override
+    public Response updateRoom(Room room) {
+    try {
+        Room updatedRoom = roomRepository.save(room); // Simpan perubahan ke database
+        Response response = new Response();
+        response.setStatus(HttpStatus.OK.value());
+        response.setMessage("Room updated successfully!");
+        response.setData(updatedRoom);
+        return response;
+    } catch (Exception e) {
+        throw new RuntimeException("Failed to update Room: " + e.getMessage());
+    }
+}
+
 }
