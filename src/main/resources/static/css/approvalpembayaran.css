@@ -1,93 +1,174 @@
-*{
-    padding: 10px;
+/* General Reset */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
 body {
-    box-sizing: border-box;
-    font-family: Poppins;
+    display: flex;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    color: #333;
 }
 
+/* Sidebar Styling */
 .sidebar {
-    position: fixed;
-    background: rgba(217, 217, 217, 0.3);
-    width: 350;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1;
+    width: 250px;
+    background: #000000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
-.sidebar image {
-    padding: 10px;
+.sidebar .logo {
+    width: 100%;
+    margin-bottom: 30px;
 }
 
 .sidebar ul {
+    list-style-type: none;
+}
+
+.sidebar ul li {
     margin: 15px 0;
 }
 
-.cont_nav{
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
-.content_nav a{
-    flex-shrink: 0;
-    color: #9D9D9D;
-    text-align: center;
-    font-family: Poppins;
-    font-size: 25px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-
-.search {
-    display: 20%;
+.sidebar ul li a {
+    display: flex;
     align-items: center;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
-.search-input {
-    margin-left: 275px;
-    width: 22%;
+.sidebar ul li a img {
+    width: 20px;
+    margin-right: 10px;
+    filter: brightness(0) invert(1);
+}
+
+.sidebar ul li a:hover {
+    background-color: #964b00;
+}
+
+/* Content Styling */
+.content {
+    text-align: center;
     flex: 1;
+    padding: 30px;
+    background-color: #fff;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Search Box */
+.search-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 0px; /* Geser ke kanan, sesuaikan angka sesuai kebutuhan */
+    width: 400px;       /* Lebar khusus, supaya posisi lebih terkontrol */
+}
+
+.search-box input {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    flex: 1;
 }
 
-.search-button {
-    margin-left: 8px;
-    padding: 8px 12px;
+.search-box button {
+    padding: 8px 16px;
     border: none;
+    background-color: #964b00;
+    color: white;
     border-radius: 4px;
     cursor: pointer;
 }
 
-.table {
-    margin-left: 300px;;
+.search-box button:hover {
+    background-color: #6f3200;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
     border-collapse: collapse;
-    width: 75%;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #e0e0e0;
+}
+
+th, td {
+    padding: 10px;
     text-align: left;
 }
 
-.th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+th {
+    background-color: #964b00;
+    color: white;
 }
 
-.th {
-    background-color: #f6f6f6;
-    border: 1px solid #ddd;
+tr:nth-child(even) {
+    background-color: #f8f9fa;
 }
 
-.tr:nth-child(even) {
-    background-color: #D9D9D9;
+tr:hover {
+    background-color: #e9ecef;
 }
 
-.custom-select {
-    width: 100px;
-    border-radius: 5px;
-    padding: 8px;
+/* Dropdown Styling */
+select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
 }
+
+button {
+    padding: 6px 12px;
+    border: none;
+    background-color: #8b6d5a; /* Warna tombol */
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #009c9b;
+}
+
+/* Dropdown Styling */
+select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* Ubah warna <select> sesuai opsi terpilih */
+select option[value="confirmed"] {
+    background-color: #4CAF50;
+    color: white;
+}
+
+select option[value="paid"] {
+    background-color: #FF0000;
+    color: white;
+}
+
+
