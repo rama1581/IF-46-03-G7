@@ -5,12 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Selamat Datang di KOST-IN!</title>
     <link rel="stylesheet" href="css/Homepage.css" />
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="home">
 
@@ -40,55 +41,23 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#helpModal">Pusat Bantuan</a>
                     </li>
-                    
-                    <!-- Dropdown Notifikasi dengan Toggler -->
+
+                   <!-- Notifikasi -->
                     <li class="nav-item position-relative">
-                        <a class="nav-link" href="#" id="notificationToggle">
-                            <img src="../aset/Bell.png" alt="Notifikasi" width="35px" height="35px">
+                        <a class="nav-link" href="/notifications">
+                            <img id="notificationIcon" src="../aset/Bell.png" alt="Notifikasi" width="35px" height="35px">
                         </a>
-                    </li>
+                    </li>                
+
                     
-                    <!-- Pesan notifikasi di luar navbar -->
-                    <div id="notificationMessage" 
-                    style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-                        background-color: rgba(0, 0, 0, 0.8); color: white; font-size: 18px;
-                        padding: 10px 30px; border-radius: 25px; display: none; z-index: 1000;
-                        white-space: nowrap; min-width: 200px; text-align: center;">
-                    </div>
-
-                    <script>
-                    // JavaScript untuk mengatur toggle notifikasi
-                    let isNotificationEnabled = false; // Status awal: Notifikasi dimatikan
-
-                    document.getElementById('notificationToggle').addEventListener('click', function (e) {
-                    e.preventDefault(); // Mencegah reload halaman
-                    const messageElement = document.getElementById('notificationMessage');
-
-                    // Toggle status notifikasi
-                    isNotificationEnabled = !isNotificationEnabled;
-
-                    if (isNotificationEnabled) {
-                        messageElement.textContent = "Notifikasi dinyalakan";
-                        messageElement.style.display = "block";
-                    } else {
-                        messageElement.textContent = "Notifikasi dimatikan";
-                        messageElement.style.display = "block";
-                    }
-
-                    // Sembunyikan pesan setelah 3 detik
-                    setTimeout(() => {
-                        messageElement.style.display = "none";
-                    }, 3000);
-                    });
-                    </script>
-                    <!-- Foto User Dropdown -->
+                    <!-- Foto User -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="../aset/icon.png" alt="Login" width="40px" height="40px">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-start dropdown-menu-end">
-                            <li><a class="dropdown-item" href="../editprofile">Edit Profile</a></li>
-                            <li><a class="dropdown-item" href="../booking/list">Riwayat Booking</a></li>
+                            <li><a class="dropdown-item" href="../editprofileaspencari">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="../booking/list">Riwayat Transaksi</a></li>
                             <li><a class="dropdown-item" href="../logout">Logout</a></li>
                         </ul>
                     </li>
@@ -98,7 +67,7 @@
     </nav>
 
     <!-- Modal Konfirmasi Logout -->
-        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -115,7 +84,6 @@
         </div>
     </div>
 </div>
-
 <script>
     // Tangkap tombol logout di dropdown dan tambahkan event listener
         document.querySelectorAll('a[href="../logout"]').forEach(function (logoutLink) {
@@ -132,8 +100,6 @@
     });
 </script>
 
-
-    
     <!-- Modal Pusat Bantuan -->
     <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -158,10 +124,10 @@
             <div class="text-start">
                 <h1 class="display-4 mb-3">Mau Cari Kos?</h1>
                 <p class="lead mb-4">Dapatkan Infonya Dan Langsung Sewa Di Kost-In Aja</p>
-                <!-- Search bar -->
+                
                 <form action="/kost/search" method="get" class="d-flex justify-content-start">
                     <div class="input-group w-75">
-                        <input type="text" name="q" placeholder=" Masukkan Lokasi/Area/Alamat" value="${query}" />
+                        <input type="text" name="q" class="form-control" placeholder="Masukkan Lokasi/Area/Alamat" name="query">
                         <button class="btn btn-primary" type="submit">Cari <i class="fas fa-search"></i></button>
                     </div>
                 </form>
@@ -169,8 +135,7 @@
         </div>
     </header>
 
-    
-    <br><br><br><br><br>
+<br><br><br><br><br>
     <!-- Footer -->
     <footer class="footer bg-dark text-white py-4">
         <div class="container position-relative">
