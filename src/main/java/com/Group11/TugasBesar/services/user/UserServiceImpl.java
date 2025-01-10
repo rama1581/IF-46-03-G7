@@ -227,4 +227,22 @@ public class UserServiceImpl implements UserService {
 		}
 		return response;
 	}
+	@Override
+	public Response updateUser(User user) {
+		try {
+			System.out.println("User before save: " + user);
+			
+			if (user != null && user.getId() != 0) {
+				User updatedUser = userRepository.save(user);
+				System.out.println("User saved successfully: " + updatedUser);
+				return new Response(HttpStatus.OK.value(), "User updated successfully", updatedUser);
+			} else {
+				return new Response(HttpStatus.BAD_REQUEST.value(), "Invalid user data", null);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Response(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Error updating user: " + e.getMessage(), null);
+		}
+	}
+	
 }
