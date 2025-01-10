@@ -1,5 +1,8 @@
 package com.Group11.TugasBesar.services.kost;
 
+import java.util.List;
+
+import com.Group11.TugasBesar.models.Kost;
 import com.Group11.TugasBesar.models.PemilikKost;
 import com.Group11.TugasBesar.payloads.requests.KostRequest;
 import com.Group11.TugasBesar.payloads.responses.Response;
@@ -20,6 +23,11 @@ public interface KostService {
 
     Response getKostByPemilikKost(PemilikKost pemilikKost);
 
+    Response updateKost(Kost kost);
+
     // Response getKostByName(String name);
-    
+    List<Kost> searchKost(String query, Boolean allowedMale, Boolean allowedFemale);
+    List<Kost> searchMixedKost();
+    List<Kost> searchKostByPriceRange(long minPrice, long maxPrice);
+    long getBalanceByPemilikKostId(int pemilikKostId);
 }
