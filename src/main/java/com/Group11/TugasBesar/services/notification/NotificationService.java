@@ -11,4 +11,7 @@ public interface NotificationService {
     Response getNotifications();
 
     Response getNotificationByPencariKost(PencariKost pencariKost);
+
+    Response getNotificationsByConfirmedBookings(int pencariKostId);
+
 }
