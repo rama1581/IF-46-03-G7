@@ -1,27 +1,38 @@
+:root {
+    --color-primary: #0073ff;
+    --color-white: #e9e9e9;
+    --color-black: #141d28;
+    --color-black-1: #212b38;
+    --color-secondary: #b58b61;
+    --color-hover: #9c7052;
+    --color-neutral: #846C5B;
+}
+
 *{
     margin: 0;
     padding:0;
     font-family: 'Poppins';
 }
 
-.cont_nav{
-    top: 0; 
-    width: 100%; 
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+.navbar, .cont_nav {
+    background-color: var(--color-black-1);
+    color: var(--color-white);
+    padding: 10px 30px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .content_nav button{
     border-radius: 8px;
-    background: #00BBB4;
+    background: var(--color-primary);
     display: flex;
     width: 182.237px;
     height: 48px;
-    padding: 8px 16.237px 10px 16px;
-    justify-content: center;
+    padding: 10px 20px;
+    justify-content: center; 
     align-items: center;
     flex-shrink: 0;
     text-align: center;
-    color: white;
+    color: var(--color-white);
     border: none;
     font-family: Poppins;
     font-size: 20px;
@@ -33,10 +44,10 @@
 
 .content_nav a{
     flex-shrink: 0;
-    color: #9D9D9D;
+    color: var(--color-white);
     text-align: center;
     font-family: Poppins;
-    font-size: 25px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -71,40 +82,108 @@
 }
 
 .search-button {
-    margin-left: 10px;
-    padding: 15px;
-    border: none;
-    background: none;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 10px 15px;
     border-radius: 8px;
+    border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: var(--color-hover);
 }
 
 .kost-item {
     border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    width: 40%;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    background-color: var(--color-white);
+    width: 80%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    color: var(--color-black);
+}
+
+.kost-item:hover {
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 .kost-link {
-    /* text-decoration: none; */
     font-weight: bold;
-    color: #333;
+    color: var(--color-neutral);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
+.kost-link:hover {
+    color: var(--color-hover);
+}
 
 .filter-options {
-    margin-left: 700px; /* adjust as needed */
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 .filter-label {
-    margin-right: 10px; /* space between checkboxes and labels */
-    font-size: 16px; /* adjust font size as needed */
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--color-black);
 }
 
 /* Styling checkboxes */
 input[type="checkbox"] {
-    margin-right: 5px; /* space between checkboxes */
-    vertical-align: middle; /* align checkboxes vertically with text */
+    margin-right: 10px;
+    accent-color: var(--color-primary);
 }
+
+body, * {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-weight: 400; /* Default */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-weight: 700; /* Heading font weight */
+}
+
+.hero {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 50px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+
+.footer {
+    background-color: var(--color-black-1);
+    color: var(--color-white);
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
