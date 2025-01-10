@@ -1,0 +1,139 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.sidebar {
+    background-color: #000;
+    padding: 20px;
+    width: 210px; /* ganti dari 250px ke 200px */
+    color: #fff;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+}
+
+
+.sidebar .image img {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a img {
+    margin-right: 10px;
+    filter: brightness(0) invert(1);
+    width: 20px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #964b00;
+}
+
+.content {
+    text-align: center;
+    flex: 1;
+    padding: 30px;
+    background-color: #fff;
+    margin-left: 230px; /* beri jarak agar tidak ketutupan sidebar */
+}
+
+.content h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 30px; /* Geser ke kanan, sesuaikan angka sesuai kebutuhan */
+    width: 400px;       /* Lebar khusus, supaya posisi lebih terkontrol */
+}
+
+.search-box input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+}
+
+.search-box button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #964b00;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background-color: #6f3200;
+}
+
+/* Tabel diberi jarak dari elemen atas (search box) dan tidak memenuhi lebar layar */
+table {
+    width: 95%;
+    margin: 20px auto 0 auto; /* 20px jarak atas, auto kiri/kanan agar tabel di tengah */
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #964b00;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Mengatur agar kolom pertama (ID) memiliki warna yang sama dengan header ID */
+table th:first-child, 
+table td:first-child {
+    background-color: #964b00 !important;
+    color: #fff;
+}
+
+/* Karena nth-child(even) mungkin mengubah warna latar belakang baris genap,
+   kita pakai !important untuk memaksa warna kolom pertama tetap sama. */
