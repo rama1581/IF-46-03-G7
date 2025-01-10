@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <html>
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body class="Booking">
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; opacity: 0.75; width: 100%; padding: 10px 0;">
         <div class="container-fluid">
@@ -160,7 +162,8 @@
                     <div class="durasi" style="font-size: 20px;">
                         <label for="paymentMethod">Durasi sewa kost:</label>
                     </div>
-                    <c:out value="${entryDate}"/> → <c:out value="${exitDate}"/>
+                        <p class="m-0">Tanggal Masuk  : ${entryDate}</p>
+                        <p class="m-0">Tanggal Keluar : ${exitDate}</p>
                     
                     <div class="payment" style="font-size: 20px;">
                         <label for="paymentMethod">Pilih metode pembayaran:</label>
@@ -169,6 +172,8 @@
                     <div class="payment-method-option">
                         <input type="radio" id="QRIS" name="method" value="QRIS">
                         <label for="QRIS">QRIS</label>
+                        <input type="radio" id="QRIS" name="method" value="QRIS">
+                        <label for="QRIS">Transfer Bank</label>
                     </div>
                 </div>
             
@@ -193,19 +198,48 @@
                     });
                 </script>
 
-    
+
                     <p>Subtotal: <span id="subtotal">Rp <c:out value="${price}" /></span></p>
                     <p>Biaya Administrasi: Rp 2500</p>
-                    <p>Total: <span id="total"> ${price + 2500} </span></p>
-        
-                    <button class="cancel-button">Batalkan Pesanan</button>
-
+                    <p>Total: <span id="total">Rp ${price + 2500} </span></p>
+                    
+                    <button type="button" class="cancel-button" data-bs-toggle="modal" data-bs-target="#cancelModal">Batalkan Pesanan</button>
+    
                     
                     <button class="continue-button">Lanjutkan</button>
+                    <script>
+                        document.querySelector('.continue-button').addEventListener('click', function (event) {
+                            const selectedPaymentMethod = document.querySelector('input[name="method"]:checked');
+                            if (!selectedPaymentMethod) {
+                                event.preventDefault(); // Mencegah form dikirim
+                                alert("Silakan pilih metode pembayaran sebelum melanjutkan.");
+                            }
+                        });
+                    </script>
                 </div>
             </div>
         </form>
     </section>
+    
+    <!-- Modal Konfirmasi Pembatalan -->
+<div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cancelModalLabel">Konfirmasi Pembatalan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Apakah Anda yakin ingin membatalkan pesanan ini?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                <a href="${pageContext.request.contextPath}/booking/${booking_id}/cancel" class="btn btn-danger">Ya, Batalkan</a>
+            </div>
+        </div>
+    </div>
+</div>
+
     <br><br><br><br><br><br><br><br><br><br>
     <!-- Footer -->
     <footer class="footer bg-dark text-white py-4">
@@ -252,6 +286,3 @@
     <jsp:include page="/WEB-INF/views/chat.jsp" />
 </body>
 </html>
-
-
-
