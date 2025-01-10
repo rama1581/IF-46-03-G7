@@ -87,7 +87,7 @@
                             <img src="${pageContext.request.contextPath}/aset/icon.png" alt="Login" width="40px" height="40px">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-start dropdown-menu-end">
-                            <li><a class="dropdown-item" href="../editprofile">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="../editprofileaspencari">Edit Profile</a></li>
                             <li><a class="dropdown-item" href="../booking/list">Riwayat Booking</a></li>
                             <li><a class="dropdown-item" href="../logout">Logout</a></li>
                         </ul>
@@ -153,7 +153,8 @@
     <!-- Title Start -->
     <div class="row">
         <div class="col-md-12">
-            <div class="text" style="font-size: 30px; margin-left: 280px;">
+            <div class="text" style="font-size: 30px; margin-left: -290px;">
+                <br><br>
                 <h1>Pembayaran</h1>
             </div>
         </div>
@@ -208,13 +209,18 @@
             </div>
             <div class="col-6 container" style="width: 700px; height: 650px; margin-right: 295px; margin-top: 50px;">
                 <div class="text5">
-                    <h1>Cara Membayar</h1>
+                    <h1>Melalui QR Code</h1>
                     <ul style="margin-top: 30px; margin-right: 50px;">
                         <li>Buka aplikasi m-banking atau dompet digital  yang mendukung pembayaran melalui QR</li>
                         <li>Scan QR Code disamping</li>
                         <li>Pastikan total pembayaran sudah sama dengan total pembayaran yang tertera di web</li>
                         <li>Tunggu sampai proses pembayaran selesai</li>
                         <li>Jika pembayaran dilakukan diluar batas waktu, maka pesanan otomatis dibatalkan</li>
+                    <h1>Transfer Bank</h1>
+                        <li>Buka aplikasi m-banking atau dompet digital Anda lalu pilih menu transfer</li>
+                        <li>Masukkan nomor rekening berikut : 1234567890</li>
+                        <li>Masukkan nominal pembayaran sesuai dengan jumlah yang sebelumnya ditampilkan</li>
+                        <li>Setelah transfer, klik tombol "Saya Sudah Transfer"</li>
                     </ul>
                 </div>
             </div>
@@ -257,4 +263,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <jsp:include page="/WEB-INF/views/chat.jsp" />
 </body>
-</html> 
+</html>
