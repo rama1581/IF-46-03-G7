@@ -41,6 +41,7 @@
 
     <!-- Content -->
     <div class="content">
+        <br><br>
         <h1>Daftar User</h1>
         <div class="search-box">
             <form>

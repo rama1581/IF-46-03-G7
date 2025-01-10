@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/approvalkost.css">
 </head>
 <body>
+    
+    
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="image">
@@ -41,6 +43,7 @@
 
     <!-- Content -->
     <div class="content">
+        <br><br>
         <h1>Daftar Kost</h1>
         <div class="search-box">
             <form>
@@ -105,5 +108,7 @@
             form.submit();
         }
     </script>
+
+    
 </body>
 </html>

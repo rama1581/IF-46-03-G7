@@ -45,6 +45,7 @@
 
     <!-- Content -->
     <div class="content">
+        <br><br>
         <h1>Daftar Pembayaran</h1>
 
         <!-- Search Box -->
@@ -83,9 +84,9 @@
                         <td>
                             <form action="/dashboard/booking/${booking.booking_id}" method="post">
                                 <select name="paymentStatus">
-                                    <option value="awaiting payment" <c:if test="${booking.payment.status eq 'awaiting payment'}">selected</c:if>>Awaiting Payment</option>
-                                    <option value="paid" <c:if test="${booking.payment.status eq 'paid'}">selected</c:if>>Paid</option>
-                                    <option value="confirmed" <c:if test="${booking.payment.status eq 'confirmed'}">selected</c:if>>Confirmed</option>
+                                    <option value="Menunggu Pembayaran" <c:if test="${booking.payment.status eq 'Menunggu Pembayaran'}">selected</c:if>>Menunggu Pembayaran</option>
+                                    <option value="Sudah Dibayar" <c:if test="${booking.payment.status eq 'Sudah Dibayar'}">selected</c:if>>Sudah Dibayar</option>
+                                    <option value="Dikonfirmasi" <c:if test="${booking.payment.status eq 'Dikonfirmasi'}">selected</c:if>>Dikonfirmasi</option>
                                 </select>
                                 <button type="submit">Simpan</button>
                             </form>
