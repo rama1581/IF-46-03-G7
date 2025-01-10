@@ -125,13 +125,13 @@
                                         </div>
             
                                         <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <img src="/aset/kost2.png" alt="Slide 1">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="/aset/kost3.png" alt="Slide 2">
-                                            </div>
+                                            <c:forEach var="image" items="${room.imageUrl}">
+                                                <div class="carousel-item <c:if test='${image == room.imageUrl}'>active</c:if>'">
+                                                    <img src="${image}" alt="Gambar Kamar" class="d-block w-100" />
+                                                </div>
+                                            </c:forEach>
                                         </div>
+                                        
             
                                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -147,7 +147,6 @@
                                 <div class="container_info">
                                     <div class="container_info-wrapper">
                                         <div class="container_info-details">
-                                            <div class="idkamar">ID Kamar: ${room.room_id}</div>
                                             <div class="harga-kamar">Harga: Rp. ${room.price} / Bulan</div>
                                             <div class="alamat-kost">Alamat: <c:out value="${address}"/></div>
                                             <div class="fasilitas">
@@ -274,8 +273,3 @@
     <jsp:include page="/WEB-INF/views/chat.jsp" />
 </body>
 </html>
-
-
-
-
-
